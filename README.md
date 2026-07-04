@@ -1,36 +1,39 @@
-# the blacklist — Blog
+# The Blacklist — Blog
 
-Blog estático construído com [SvelteKit](https://kit.svelte.dev/) + [adapter-static](https://kit.svelte.dev/docs/adapter-static). Os posts são escritos em Markdown com front matter YAML e convertidos para HTML durante o build.
+Exemplo de BLOG estático construído com [SvelteKit](https://kit.svelte.dev/) + [adapter-static](https://kit.svelte.dev/docs/adapter-static). 
+
+A ideia deste projeto é explorar a possibilidade de subir os posts para o blog apenas adicionando arquivos de texto escritos em Markdown com front matter YAML, que serão convertidos automaticamente em páginas HTML completas na hospedagem durante o build.
+
 
 ## Estrutura
 
 ```
 ├── src/
-│   ├── app.css              # Estilos globais (fontes, variáveis, botões)
-│   ├── app.html             # Template HTML do SvelteKit
+│   ├── app.css                      # Estilos globais (fontes, variáveis, botões)
+│   ├── app.html                     # Template HTML do SvelteKit
 │   ├── lib/components/
-│   │   ├── Header.svelte    # Nav fixa, dropdown Serviços, menu mobile
-│   │   ├── PostHero.svelte  # Hero com vídeo, meta, título gradiente
-│   │   ├── PostArticle.svelte   # Capa + grid (sidebar + conteúdo)
-│   │   ├── PostSidebar.svelte   # TOC + CTA "Fale conosco"
-│   │   ├── PostShareNav.svelte  # Compartilhar, navegação entre posts
-│   │   └── Footer.svelte    # Grid com brand, páginas, contato
+│   │   ├── Header.svelte            # Nav fixa, dropdown Serviços, menu mobile
+│   │   ├── PostHero.svelte          # Hero com vídeo, meta, título gradiente
+│   │   ├── PostArticle.svelte       # Capa + grid (sidebar + conteúdo)
+│   │   ├── PostSidebar.svelte       # TOC + CTA "Fale conosco"
+│   │   ├── PostShareNav.svelte      # Compartilhar, navegação entre posts
+│   │   └── Footer.svelte            # Grid com brand, páginas, contato
 │   └── routes/
-│       ├── +layout.svelte       # Layout global
-│       ├── +page.server.ts      # Redireciona / → /blog/
+│       ├── +layout.svelte           # Layout global
+│       ├── +page.server.ts          # Redireciona / → /blog/
 │       ├── +page.svelte
 │       └── blog/
-│           ├── +page.server.ts  # Lista todos os posts (front matter)
-│           ├── +page.svelte     # Grid de cards dos posts
+│           ├── +page.server.ts      # Lista todos os posts (front matter)
+│           ├── +page.svelte         # Grid de cards dos posts
 │           └── [slug]/
 │               ├── +page.server.ts  # Lê .md, gera TOC, converte HTML
 │               └── +page.svelte     # Layout do post
 ├── static/
-│   └── assets/              # Imagens, vídeos, SVGs (servidos em /assets/)
-├── post.md                  # Post: "O que é landing page para Advogados"
-├── cabana.md                # Post: "Refutando 'A Cabana'"
-├── svelte.config.js         # Config SvelteKit (adapter-static, precompress)
-├── vercel.json              # Cache e headers de segurança
+│   └── assets/                      # Imagens, vídeos, SVGs (servidos em /assets/)
+├── post.md                          # Post: "O que é landing page para Advogados"
+├── cabana.md                        # Post: "Refutando 'A Cabana'"
+├── svelte.config.js                 # Config SvelteKit (adapter-static, precompress)
+├── vercel.json                      # Cache e headers de segurança
 └── package.json
 ```
 
