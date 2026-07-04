@@ -1,11 +1,4 @@
 ---
-title: "Principais Gerenciadores de Dependências"
-date: "2024-11-17"
-category: [articles]
-tags: ["gerenciadores", "dependências", "programação", "python"]
----
-
----
 title: "Gerenciadores " 
 emphasis: "de dependências"
 hero: "Nenhum dev vive sem um deles."
