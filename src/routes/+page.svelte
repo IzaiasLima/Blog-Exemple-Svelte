@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Blog — the blacklist</title>
+	<title>Blog — The Blacklist</title>
 	<meta http-equiv="refresh" content="0;url=/blog/" />
 </svelte:head>
 
