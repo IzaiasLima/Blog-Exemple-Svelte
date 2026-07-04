@@ -39,14 +39,13 @@ function removeManualToc(body: string): string {
 export const prerender = true;
 
 export const entries: EntryGenerator = () => {
-	const files = readdirSync(process.cwd()).filter(
-		(f) => f.endsWith('.md') && f !== 'README.md'
-	);
+	const postsDir = join(process.cwd(), 'src/posts');
+	const files = readdirSync(postsDir).filter((f) => f.endsWith('.md'));
 	return files.map((f) => ({ slug: f.replace(/\.md$/, '') }));
 };
 
 export const load: PageServerLoad = ({ params }) => {
-	const filePath = join(process.cwd(), `${params.slug}.md`);
+	const filePath = join(process.cwd(), 'src/posts', `${params.slug}.md`);
 
 	if (!existsSync(filePath)) {
 		error(404, `Post "${params.slug}" não encontrado`);

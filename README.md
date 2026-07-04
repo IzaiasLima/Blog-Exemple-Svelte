@@ -28,10 +28,12 @@ A ideia deste projeto é explorar a possibilidade de subir os posts para o blog 
 │           └── [slug]/
 │               ├── +page.server.ts  # Lê .md, gera TOC, converte HTML
 │               └── +page.svelte     # Layout do post
+├── src/
+│   └── posts/                       # Arquivos .md dos posts
+│       ├── landing-page.md          # Post: "O que é landing page para Advogados"
+│       └── cabana.md                # Post: "Refutando 'A Cabana'"
 ├── static/
 │   └── assets/                      # Imagens, vídeos, SVGs (servidos em /assets/)
-├── post.md                          # Post: "O que é landing page para Advogados"
-├── cabana.md                        # Post: "Refutando 'A Cabana'"
 ├── svelte.config.js                 # Config SvelteKit (adapter-static, precompress)
 ├── vercel.json                      # Cache e headers de segurança
 └── package.json
@@ -60,7 +62,7 @@ npm run preview
 
 ## Como criar um novo post
 
-1. Crie um arquivo `.md` na raiz do projeto
+1. Crie um arquivo `.md` em `src/posts/`
 
 2. Adicione o front matter YAML obrigatório:
 
@@ -83,7 +85,7 @@ lead: "Parágrafo de introdução"
 
 4. Coloque a imagem de capa em `static/assets/`
 
-5. Faça o build — o SvelteKit detecta automaticamente o novo arquivo e gera a página em `/blog/{nome-do-arquivo}`.
+5. Faça o build — o SvelteKit detecta automaticamente o novo arquivo em `src/posts/` e gera a página em `/blog/{nome-do-arquivo}` (sem a extensão `.md`).
 
 > O índice (TOC) é gerado automaticamente a partir dos cabeçalhos `##`, `###` do Markdown. TOCs manuais escritos como listas de links com âncora são removidos automaticamente.
 

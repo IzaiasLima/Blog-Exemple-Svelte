@@ -6,14 +6,13 @@ import { join } from 'node:path';
 export const prerender = true;
 
 export const load: PageServerLoad = () => {
-	const files = readdirSync(process.cwd()).filter(
-		(f) => f.endsWith('.md') && f !== 'README.md'
-	);
+	const postsDir = join(process.cwd(), 'src/posts');
+	const files = readdirSync(postsDir).filter((f) => f.endsWith('.md'));
 
 	const posts = files
 		.map((f) => {
 			const slug = f.replace(/\.md$/, '');
-			const content = readFileSync(join(process.cwd(), f), 'utf-8');
+			const content = readFileSync(join(postsDir, f), 'utf-8');
 			const { data } = matter(content);
 			return {
 				slug,
