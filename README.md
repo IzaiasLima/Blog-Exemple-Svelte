@@ -1,4 +1,4 @@
-# The Blacklist — Blog
+# The Blacklist — Svete/Sveltekit Blog
 
 Exemplo de BLOG estático construído com [SvelteKit](https://kit.svelte.dev/) + [adapter-static](https://kit.svelte.dev/docs/adapter-static). 
 
