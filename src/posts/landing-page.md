@@ -5,7 +5,7 @@ hero: "Escopo, prazo, execução direta e critérios claros para contratar com m
 date: "11/06/2026"
 category: "agência"
 reading_time: "9 min"
-image: "como-escolher-agencia-marketing-saas-cover.webp"
+image: "agencia.webp"
 description: "Um bom contrato começa antes do preço. Começa no critério."
 alt: "estrutura de landing page para SaaS com problema, oferta, prova e CTA organizados"
 lead: "Como escolher agência de marketing digital é uma decisão de risco para qualquer empresa. Para SaaS, esse risco é maior."
