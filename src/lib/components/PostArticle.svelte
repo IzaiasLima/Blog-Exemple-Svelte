@@ -41,7 +41,7 @@
 <style>
 	.post-article {
 		padding: 0 0 125px;
-		background: #050506;
+		background: var(--bg);
 	}
 
 	.post-article-shell {
@@ -50,8 +50,8 @@
 		border-top: 15px solid var(--accent);
 		border-bottom: 15px solid var(--accent);
 		border-radius: clamp(18px, 2.2vw, 32px);
-		background: #111010;
-		box-shadow: 0 30px 90px rgba(0, 0, 0, 0.36);
+		background: var(--bg-alt);
+		box-shadow: var(--shadow-image);
 	}
 
 	.post-cover {
@@ -65,7 +65,7 @@
 		display: block;
 		border-radius: clamp(14px, 1.6vw, 24px);
 		object-fit: contain;
-		box-shadow: 0 30px 90px rgba(0, 0, 0, 0.36);
+		box-shadow: var(--shadow-image);
 	}
 
 	.post-cover figcaption {
@@ -128,7 +128,7 @@
 		color: #fff;
 		font-weight: 700;
 		text-decoration: underline;
-		text-decoration-color: rgba(239, 19, 56, 0.72);
+		text-decoration-color: rgba(var(--accent-rgb), 0.72);
 		text-underline-offset: 5px;
 	}
 
@@ -158,7 +158,7 @@
 		height: 6px;
 		border-radius: 50%;
 		background: var(--accent);
-		box-shadow: 0 0 18px rgba(239, 19, 56, 0.64);
+		box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.64);
 	}
 
 	.post-content :global(table) {
@@ -179,7 +179,7 @@
 
 	.post-content :global(th) {
 		color: #fff;
-		background: rgba(239, 19, 56, 0.14);
+		background: rgba(var(--accent-rgb), 0.14);
 		font-size: 10px;
 		font-weight: 700;
 		letter-spacing: 0.14em;

@@ -18,15 +18,15 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 8px;
+		gap: var(--space-xs);
 		min-height: 46px;
 		padding: 13px 21px;
 		border: 1px solid transparent;
 		border-radius: var(--radius);
-		font-size: 14px;
+		font-size: var(--text-base);
 		font-weight: 700;
 		line-height: 1;
-		transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+		transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
 	}
 
 	:global(.btn:hover) {
@@ -42,6 +42,6 @@
 	:global(.btn-small) {
 		min-height: 38px;
 		padding: 10px 17px;
-		font-size: 13px;
+		font-size: var(--text-sm);
 	}
 </style>

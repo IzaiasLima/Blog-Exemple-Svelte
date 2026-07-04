@@ -78,7 +78,7 @@
 		position: fixed;
 		inset: 0 0 auto;
 		z-index: 50;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid var(--line-mid);
 		background: rgba(8, 8, 10, 0.03);
 		backdrop-filter: blur(18px);
 		-webkit-backdrop-filter: blur(18px);
@@ -94,7 +94,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 24px;
+		gap: var(--space-lg);
 	}
 
 	.brand img {
@@ -108,15 +108,15 @@
 	.nav-actions {
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: var(--space-xs);
 	}
 
 	.nav-link {
 		color: var(--muted);
-		font-size: 13px;
+		font-size: var(--text-sm);
 		font-weight: 500;
-		padding: 8px 10px;
-		transition: color 160ms ease;
+		padding: var(--space-xs) var(--space-sm);
+		transition: color var(--transition-fast);
 	}
 
 	.nav-link:hover,
@@ -152,11 +152,11 @@
 		top: calc(100% + 12px);
 		left: 0;
 		width: 250px;
-		padding: 8px;
+		padding: var(--space-xs);
 		border: 1px solid var(--line);
 		border-radius: var(--radius);
-		background: #050506;
-		box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+		background: var(--bg);
+		box-shadow: var(--shadow-menu);
 		opacity: 0;
 		visibility: hidden;
 		transform: translateY(-4px);
@@ -176,14 +176,15 @@
 		align-items: center;
 		gap: 9px;
 		color: var(--muted-2);
-		font-size: 13px;
+		font-size: var(--text-sm);
 		font-weight: 600;
-		padding: 10px 12px;
+		padding: var(--space-sm) 12px;
 		border-radius: 6px;
-		transition: background 160ms ease, color 160ms ease;
+		transition: background var(--transition-fast), color var(--transition-fast);
 	}
 
-	.services-menu a::before {
+	.services-menu a::before,
+	.mobile-menu a::before {
 		content: '';
 		width: 5px;
 		height: 5px;
@@ -226,12 +227,12 @@
 	.mobile-menu {
 		display: none;
 		width: min(var(--page-width), var(--max));
-		margin: 0 auto 18px;
+		margin: 0 auto var(--space-base);
 		padding: 12px;
 		border: 1px solid var(--line);
 		border-radius: var(--radius);
-		background: #050506;
-		box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+		background: var(--bg);
+		box-shadow: var(--shadow-menu);
 	}
 
 	.mobile-menu.is-open {
@@ -242,20 +243,11 @@
 		display: flex;
 		align-items: center;
 		gap: 9px;
-		padding: 12px 10px;
+		padding: 12px var(--space-sm);
 		color: var(--muted-2);
 		border-bottom: 1px solid var(--line);
 		font-weight: 600;
-		transition: background 160ms ease, color 160ms ease;
-	}
-
-	.mobile-menu a::before {
-		content: '';
-		width: 5px;
-		height: 5px;
-		flex: 0 0 auto;
-		border-radius: 50%;
-		background: var(--accent);
+		transition: background var(--transition-fast), color var(--transition-fast);
 	}
 
 	.mobile-menu a:hover,

@@ -43,14 +43,14 @@
 <style>
 	.site-footer {
 		border-top: 1px solid var(--line);
-		background: #050506;
-		padding: 48px 0 28px;
+		background: var(--bg);
+		padding: var(--space-xl) 0 28px;
 	}
 
 	.footer-grid {
 		display: grid;
 		grid-template-columns: 1.4fr 0.9fr 1fr 0.8fr;
-		gap: 48px;
+		gap: var(--space-xl);
 	}
 
 	.footer-logo-link {
@@ -72,14 +72,14 @@
 	.site-footer a,
 	.footer-bottom p {
 		color: var(--muted);
-		font-size: 13px;
+		font-size: var(--text-sm);
 		letter-spacing: 0.08em;
 	}
 
 	.site-footer h2 {
-		margin: 0 0 14px;
+		margin: 0 0 var(--space-md);
 		color: var(--accent);
-		font-size: 14px;
+		font-size: var(--text-base);
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
 	}
@@ -94,7 +94,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 7px;
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		border: 1px solid var(--line-mid);
 		border-radius: 999px;
 		padding: 6px 11px;
 		color: #d4d4d8;

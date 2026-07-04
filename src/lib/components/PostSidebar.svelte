@@ -28,20 +28,20 @@
 		position: sticky;
 		top: 104px;
 		display: grid;
-		gap: 14px;
+		gap: var(--space-md);
 	}
 
 	.post-sidebar-card {
-		padding: 18px;
+		padding: var(--space-base);
 		border: 1px solid var(--line);
 		border-radius: 8px;
 		background: rgba(255, 255, 255, 0.025);
 	}
 
 	.post-sidebar-card p {
-		margin: 0 0 14px;
+		margin: 0 0 var(--space-md);
 		color: var(--accent);
-		font-size: 10px;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
@@ -61,13 +61,13 @@
 	.post-sidebar-card :global(a) {
 		display: block;
 		padding: 9px 0;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+		border-bottom: 1px solid var(--line-light);
 		color: var(--muted-2);
 		font-size: 12px;
 		font-weight: 700;
 		line-height: 1.35;
 		letter-spacing: 0.04em;
-		transition: color 160ms ease, padding 160ms ease;
+		transition: color var(--transition-fast), padding var(--transition-fast);
 	}
 
 	.post-sidebar-card :global(a:last-child) {
@@ -84,11 +84,11 @@
 	.post-sidebar-cta {
 		display: grid;
 		gap: 12px;
-		padding: 18px;
-		border: 1px solid rgba(239, 19, 56, 0.34);
-		border-radius: 8px;
+		padding: var(--space-base);
+		border: 1px solid rgba(var(--accent-rgb), 0.34);
+		border-radius: var(--radius);
 		background:
-			linear-gradient(145deg, rgba(239, 19, 56, 0.14), rgba(255, 255, 255, 0.025)),
+			linear-gradient(145deg, rgba(var(--accent-rgb), 0.14), rgba(255, 255, 255, 0.025)),
 			rgba(255, 255, 255, 0.02);
 	}
 
@@ -98,11 +98,11 @@
 		align-items: center;
 		justify-content: center;
 		min-height: 24px;
-		padding: 6px 10px;
+		padding: 6px var(--space-sm);
 		border-radius: 999px;
-		background: rgba(239, 19, 56, 0.16);
-		color: #fff;
-		font-size: 9px;
+		background: rgba(var(--accent-rgb), 0.16);
+		color: var(--white);
+		font-size: var(--text-2xs);
 		font-weight: 800;
 		line-height: 1;
 		letter-spacing: 0.12em;

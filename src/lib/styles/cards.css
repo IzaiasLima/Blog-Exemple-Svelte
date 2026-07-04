@@ -1,0 +1,123 @@
+/* ===== Shared Card Styles ===== */
+
+/* Card base */
+.card {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	border: 1px solid var(--line);
+	border-radius: var(--radius-lg);
+	background: var(--card);
+	overflow: hidden;
+	text-decoration: none;
+	transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover {
+	border-color: rgba(var(--accent-rgb), 0.34);
+	transform: translateY(-4px);
+	box-shadow: var(--shadow-card);
+	transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* Card cover */
+.card-cover {
+	overflow: hidden;
+}
+
+.card-cover img {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1200 / 630;
+	object-fit: cover;
+	display: block;
+	transition: transform var(--transition-slow);
+}
+
+.card:hover .card-cover img {
+	transform: scale(1.03);
+}
+
+/* Card body */
+.card-body {
+	display: grid;
+	gap: var(--space-md);
+	padding: clamp(18px, 2vw, 28px);
+}
+
+/* Card meta row */
+.card-meta {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.card-meta span {
+	display: inline-flex;
+	align-items: center;
+	min-height: 22px;
+	padding: 5px 9px;
+	border: 1px solid var(--line-mid);
+	border-radius: 999px;
+	color: var(--muted);
+	font-size: var(--text-2xs);
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: 0.10em;
+	text-transform: uppercase;
+}
+
+.card-category {
+	border-color: rgba(var(--accent-rgb), 0.60) !important;
+	background: rgba(var(--accent-rgb), 0.10);
+	color: var(--white) !important;
+}
+
+/* Card heading */
+.card-body h2,
+.card-body h3 {
+	margin: 0;
+	font-size: clamp(22px, 1.8vw, 28px);
+	line-height: 1.05;
+	text-transform: uppercase;
+	color: var(--text);
+	font-weight: 400;
+}
+
+.card-body h2 strong,
+.card-body h3 strong {
+	color: var(--accent);
+}
+
+.card-body h3 strong {
+	font-weight: 400;
+}
+
+/* Card description */
+.card-body p {
+	margin: 0;
+	color: var(--muted);
+	font-size: var(--text-sm);
+	line-height: 1.58;
+	letter-spacing: 0.04em;
+}
+
+/* Card CTA */
+.card-cta {
+	color: var(--accent);
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	transition: letter-spacing var(--transition-fast);
+}
+
+.card:hover .card-cta {
+	letter-spacing: 0.12em;
+}
+
+@media (max-width: 560px) {
+	.card-meta {
+		gap: 6px;
+	}
+}

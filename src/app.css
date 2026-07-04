@@ -1,75 +1,4 @@
-/* latin-ext */
-@font-face {
-	font-family: 'Bebas Neue';
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/bebasneue/v16/JTUSjIg69CK48gW7PXoo9Wdhyzbi.woff2) format('woff2');
-	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-	font-family: 'Bebas Neue';
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/bebasneue/v16/JTUSjIg69CK48gW7PXoo9Wlhyw.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-	font-family: 'DM Sans';
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/dmsans/v17/rP2Hp2ywxg089UriCZ2IHSeH.woff2) format('woff2');
-	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-	font-family: 'DM Sans';
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/dmsans/v17/rP2Hp2ywxg089UriCZOIHQ.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-	font-family: 'DM Sans';
-	font-style: normal;
-	font-weight: 500;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/dmsans/v17/rP2Hp2ywxg089UriCZ2IHSeH.woff2) format('woff2');
-	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-	font-family: 'DM Sans';
-	font-style: normal;
-	font-weight: 500;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/dmsans/v17/rP2Hp2ywxg089UriCZOIHQ.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-	font-family: 'DM Sans';
-	font-style: normal;
-	font-weight: 700;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/dmsans/v17/rP2Hp2ywxg089UriCZ2IHSeH.woff2) format('woff2');
-	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-	font-family: 'DM Sans';
-	font-style: normal;
-	font-weight: 700;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/dmsans/v17/rP2Hp2ywxg089UriCZOIHQ.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+/* ===== Design Tokens ===== */
 
 @property --agl-x {
 	syntax: '<percentage>';
@@ -97,21 +26,65 @@
 
 :root {
 	color-scheme: dark;
+
+	/* Core palette */
 	--bg: #050506;
 	--bg-2: #09090b;
+	--bg-alt: #111010;
+	--white: #fff;
 	--text: #fafafa;
 	--muted: #a1a1aa;
 	--muted-2: #d4d4d8;
-	--line: rgba(255, 255, 255, 0.07);
-	--line-strong: rgba(255, 255, 255, 0.16);
-	--card: rgba(255, 255, 255, 0.025);
-	--card-strong: rgba(0, 0, 0, 0.22);
+
+	/* Accent */
 	--accent: #ef1338;
 	--accent-dark: #890b20;
+	--accent-rgb: 239, 19, 56;
+
+	/* Lines / borders */
+	--line: rgba(255, 255, 255, 0.07);
+	--line-light: rgba(255, 255, 255, 0.06);
+	--line-mid: rgba(255, 255, 255, 0.10);
+	--line-strong: rgba(255, 255, 255, 0.16);
+
+	/* Cards */
+	--card: rgba(255, 255, 255, 0.025);
+	--card-strong: rgba(0, 0, 0, 0.22);
+
+	/* Typography scale */
+	--text-2xs: 9px;
+	--text-xs: 10px;
+	--text-sm: 13px;
+	--text-base: 14px;
+
+	/* Spacing scale */
+	--space-xs: 8px;
+	--space-sm: 10px;
+	--space-md: 14px;
+	--space-base: 18px;
+	--space-lg: 24px;
+	--space-xl: 48px;
+
+	/* Transitions */
+	--transition-fast: 160ms ease;
+	--transition-base: 200ms ease;
+	--transition-slow: 300ms ease;
+
+	/* Shadows */
+	--shadow-menu: 0 18px 60px rgba(0, 0, 0, 0.35);
+	--shadow-card: 0 20px 60px rgba(0, 0, 0, 0.30);
+	--shadow-image: 0 30px 90px rgba(0, 0, 0, 0.36);
+
+	/* Cubic easing shared by blur-up & reveal */
+	--ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+	/* Layout */
 	--max: 1344px;
 	--page-width: 70vw;
 	--radius: 8px;
 	--radius-lg: 20px;
+
+	/* Fonts */
 	--font-display: 'Bebas Neue', Impact, sans-serif;
 	--font-body: 'DM Sans', system-ui, sans-serif;
 	--font-meta: 'DM Sans', system-ui, sans-serif;
@@ -181,32 +154,10 @@ button {
 	border: 0;
 }
 
-.container {
-	width: min(var(--page-width), var(--max));
-	margin: 0 auto;
-}
-
-@media (max-width: 920px) {
-	:root {
-		--page-width: min(88vw, calc(100vw - 40px));
-	}
-}
-
-@media (max-width: 720px) {
-	:root {
-		--page-width: min(92vw, calc(100vw - 32px));
-	}
-}
-
-@media (max-width: 560px) {
-	:root {
-		--page-width: calc(100vw - 28px);
-	}
-}
 
 /* ===== Utility: blur-up image reveal ===== */
 .img-blur-up {
-	animation: imgReveal 700ms cubic-bezier(0.4, 0, 0.2, 1) both;
+	animation: imgReveal 700ms var(--ease-out) both;
 }
 
 @keyframes imgReveal {
@@ -224,8 +175,8 @@ button {
 .reveal {
 	opacity: 0;
 	transform: translateY(30px);
-	transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1),
-		transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: opacity 600ms var(--ease-out),
+		transform 600ms var(--ease-out);
 }
 
 .reveal.is-visible {
@@ -254,5 +205,5 @@ button {
 	height: 8px;
 	border-radius: 999px;
 	background: var(--accent);
-	box-shadow: 0 0 18px rgba(239, 19, 56, 0.9);
+	box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.9);
 }

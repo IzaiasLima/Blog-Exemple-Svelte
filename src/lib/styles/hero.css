@@ -1,0 +1,44 @@
+/* ===== Shared Hero Styles ===== */
+
+/* Hero wrapper base */
+.hero-section {
+	position: relative;
+	overflow: hidden;
+	display: grid;
+	align-items: center;
+}
+
+/* Hero inner container */
+.hero-inner {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+/* Gradient text treatment */
+.hero-title-gradient {
+	color: transparent;
+	background: linear-gradient(180deg, #fafafa 0%, #949494 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+/* Hero emphasis (accent block) */
+.hero-strong {
+	display: block;
+	color: var(--accent);
+	background: none;
+	-webkit-background-clip: unset;
+	background-clip: unset;
+}
+
+/* Hero description copy */
+.hero-copy {
+	margin: 0;
+	color: var(--muted-2);
+	line-height: 1.72;
+	letter-spacing: 0.08em;
+}

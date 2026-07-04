@@ -92,7 +92,7 @@
 <style>
 	.post-share-nav {
 		padding: 0 0 112px;
-		background: #050506;
+		background: var(--bg);
 	}
 
 	.post-share-nav-inner {
@@ -128,8 +128,8 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		color: #fff;
-		transition: color 160ms ease, transform 160ms ease;
+		color: var(--white);
+		transition: color var(--transition-fast), transform var(--transition-fast);
 	}
 
 	.post-share-links a:hover,
@@ -167,7 +167,7 @@
 	}
 
 	a.post-nav-link {
-		transition: color 160ms ease, transform 160ms ease;
+		transition: color var(--transition-fast), transform var(--transition-fast);
 	}
 
 	a.post-nav-link:hover,
@@ -206,7 +206,7 @@
 		justify-content: space-between;
 		gap: 28px;
 		padding-bottom: 18px;
-		border-bottom: 1px solid rgba(239, 19, 56, 0.36);
+		border-bottom: 1px solid rgba(var(--accent-rgb), 0.36);
 	}
 
 	.post-blog-row h2 {
@@ -222,23 +222,23 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 11px 18px;
+		padding: 11px var(--space-base);
 		border: 1px solid var(--line-strong);
-		border-radius: 8px;
+		border-radius: var(--radius);
 		background: rgba(255, 255, 255, 0.02);
-		color: #fff;
-		font-size: 13px;
+		color: var(--white);
+		font-size: var(--text-sm);
 		font-weight: 700;
 		line-height: 1;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
-		transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+		transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
 	}
 
 	.post-blog-button:hover,
 	.post-blog-button:focus-visible {
 		border-color: var(--accent);
-		background: rgba(239, 19, 56, 0.16);
+		background: rgba(var(--accent-rgb), 0.16);
 		color: var(--accent);
 		outline: none;
 	}

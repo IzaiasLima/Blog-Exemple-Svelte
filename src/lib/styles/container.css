@@ -1,0 +1,22 @@
+.container {
+	width: min(var(--page-width), var(--max));
+	margin: 0 auto;
+}
+
+@media (max-width: 920px) {
+	:root {
+		--page-width: min(88vw, calc(100vw - 40px));
+	}
+}
+
+@media (max-width: 720px) {
+	:root {
+		--page-width: min(92vw, calc(100vw - 32px));
+	}
+}
+
+@media (max-width: 560px) {
+	:root {
+		--page-width: calc(100vw - 28px);
+	}
+}
