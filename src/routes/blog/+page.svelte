@@ -19,7 +19,7 @@
 </script>
 
 <svelte:head>
-	<title>Blog — the blacklist</title>
+	<title>The Blacklist - Blog</title>
 	<meta name="description" content="Artigos sobre marketing digital para SaaS" />
 	<meta property="og:title" content="Blog — the blacklist" />
 	<meta property="og:description" content="Artigos sobre marketing digital para SaaS" />
