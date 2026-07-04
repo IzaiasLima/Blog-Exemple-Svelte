@@ -1,13 +1,18 @@
+<script lang="ts">
+	import Button from './Button.svelte';
+	import { reveal } from '$lib/actions/reveal';
+</script>
+
 <footer class="site-footer">
 	<div class="container footer-grid">
-		<div class="footer-brand">
+		<div class="footer-brand" use:reveal>
 			<p class="availability"><span></span> Disponível para novos projetos</p>
 			<a class="footer-logo-link" href="https://theblacklist.digital/" aria-label="Voltar para a home">
 				<img src="/assets/logo-footer-figma.svg" alt="the blacklist" loading="lazy" />
 			</a>
 			<p>Execução direta. Resultado com critério.</p>
 		</div>
-		<div>
+		<div use:reveal>
 			<h2>Páginas</h2>
 			<a href="https://theblacklist.digital/">Home</a>
 			<a href="https://theblacklist.digital/landing-page-para-saas/">Landing page para SaaS</a>
@@ -18,18 +23,19 @@
 			<a href="https://theblacklist.digital/blog/">Blog</a>
 			<a href="https://theblacklist.digital/sobre/">Sobre</a>
 		</div>
-		<div>
+		<div use:reveal>
 			<h2>Contato</h2>
 			<a href="mailto:equipe@theblacklist.digital">equipe@theblacklist.digital</a>
 			<a href="https://www.instagram.com/theblacklist.digital/" target="_blank" rel="noopener noreferrer">Instagram</a>
 			<a href="https://www.linkedin.com/company/theblacklist-digital/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+			<Button href="https://theblacklist.digital/contato/" variant="primary" size="small">Fale conosco</Button>
 		</div>
-		<div>
+		<div use:reveal>
 			<h2>Políticas</h2>
 			<a href="https://theblacklist.digital/politica-de-privacidade/">Política de privacidade</a>
 		</div>
 	</div>
-	<div class="container footer-bottom">
+	<div class="container footer-bottom" use:reveal>
 		<p>© 2026 the blacklist. Todos os direitos reservados.</p>
 	</div>
 </footer>

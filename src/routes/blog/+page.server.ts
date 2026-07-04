@@ -3,17 +3,25 @@ import matter from 'gray-matter';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
+/** Parse a Brazilian date string (dd/mm/aaaa) to timestamp */
+function parseDateBrazil(d: string): number {
+	const [day, month, year] = d.split('/').map(Number);
+	if (!day || !month || !year) return 0;
+	return new Date(year, month - 1, day).getTime();
+}
+
 export const prerender = true;
 
 export const load: PageServerLoad = () => {
 	const postsDir = join(process.cwd(), 'src/posts');
-	const files = readdirSync(postsDir).filter((f) => f.endsWith('.md'));
+	const files = readdirSync(postsDir).filter((f: string) => f.endsWith('.md'));
 
 	const posts = files
-		.map((f) => {
+		.map((f: string) => {
 			const slug = f.replace(/\.md$/, '');
 			const content = readFileSync(join(postsDir, f), 'utf-8');
 			const { data } = matter(content);
+			const sortDate = parseDateBrazil(String(data.date || ''));
 			return {
 				slug,
 				title: String(data.title || ''),
@@ -22,17 +30,12 @@ export const load: PageServerLoad = () => {
 				date: String(data.date || ''),
 				reading_time: String(data.reading_time || ''),
 				description: String(data.description || ''),
-				image: String(data.image || '')
+				image: String(data.image || ''),
+				sortDate
 			};
 		})
-		// Ordena do mais recente para o mais antigo (assume formato dd/mm/aaaa)
-		.sort((a, b) => {
-			const parseDate = (d: string) => {
-				const [day, month, year] = d.split('/').map(Number);
-				return new Date(year, month - 1, day).getTime();
-			};
-			return parseDate(b.date) - parseDate(a.date);
-		});
+		.sort((a: { sortDate: number }, b: { sortDate: number }) => b.sortDate - a.sortDate)
+		.map(({ sortDate, ...rest }) => rest);
 
 	return { posts };
 };

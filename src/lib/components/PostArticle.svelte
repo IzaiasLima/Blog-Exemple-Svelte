@@ -16,12 +16,12 @@
 	<div class="container post-article-shell">
 		<figure class="post-cover">
 			<img
-				class="post-cover-image"
+				class="post-cover-image img-blur-up"
 				src="/assets/{image}"
 				alt="capa do artigo"
 				width="1200"
 				height="630"
-				loading="eager"
+				loading="lazy"
 			/>
 			<figcaption>{description}</figcaption>
 		</figure>

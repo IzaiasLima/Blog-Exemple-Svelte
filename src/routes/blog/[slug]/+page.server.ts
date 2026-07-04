@@ -31,6 +31,12 @@ function buildTocHtml(items: TocItem[]): string {
 	return html;
 }
 
+/** Parse a Brazilian date string (dd/mm/aaaa) to timestamp */
+function parseDateBrazil(d: string): number {
+	const [day, month, year] = d.split('/').map(Number);
+	return new Date(year, month - 1, day).getTime();
+}
+
 /** Remove manually written TOC from markdown body (links with anchors only) */
 function removeManualToc(body: string): string {
 	return body.replace(/^\s*(- \[.*?\]\(#.*?\)\s*\n)+/, '').trimStart();
@@ -40,8 +46,8 @@ export const prerender = true;
 
 export const entries: EntryGenerator = () => {
 	const postsDir = join(process.cwd(), 'src/posts');
-	const files = readdirSync(postsDir).filter((f) => f.endsWith('.md'));
-	return files.map((f) => ({ slug: f.replace(/\.md$/, '') }));
+	const files = readdirSync(postsDir).filter((f: string) => f.endsWith('.md'));
+	return files.map((f: string) => ({ slug: f.replace(/\.md$/, '') }));
 };
 
 export const load: PageServerLoad = ({ params }) => {
@@ -82,6 +88,43 @@ export const load: PageServerLoad = ({ params }) => {
 	// async: false garante retorno síncrono (string em vez de Promise)
 	const contentHtml = marked.parse(content, { renderer, async: false }) as string;
 
+	// ----- Navegação entre posts -----
+	const postsDir = join(process.cwd(), 'src/posts');
+	const allSlugs = readdirSync(postsDir)
+		.filter((f: string) => f.endsWith('.md'))
+		.map((f: string) => f.replace(/\.md$/, ''))
+		.sort((a: string, b: string) => {
+			const aPath = join(postsDir, `${a}.md`);
+			const bPath = join(postsDir, `${b}.md`);
+			const aData = matter(readFileSync(aPath, 'utf-8')).data;
+			const bData = matter(readFileSync(bPath, 'utf-8')).data;
+			const aDate = parseDateBrazil(String(aData.date || ''));
+			const bDate = parseDateBrazil(String(bData.date || ''));
+			return bDate - aDate;
+		});
+	const currentIndex = allSlugs.indexOf(params.slug);
+	const prev = currentIndex < allSlugs.length - 1 ? allSlugs[currentIndex + 1] : null;
+	const next = currentIndex > 0 ? allSlugs[currentIndex - 1] : null;
+
+	// ----- 3 posts mais recentes (excluindo o atual) -----
+	const recentPosts = allSlugs
+		.filter((s: string) => s !== params.slug)
+		.slice(0, 3)
+		.map((s: string) => {
+			const p = readFileSync(join(postsDir, `${s}.md`), 'utf-8');
+			const { data: d } = matter(p);
+			return {
+				slug: s,
+				title: String(d.title || ''),
+				emphasis: String(d.emphasis || ''),
+				category: String(d.category || ''),
+				date: String(d.date || ''),
+				reading_time: String(d.reading_time || ''),
+				description: String(d.description || ''),
+				image: String(d.image || '')
+			};
+		});
+
 	return {
 		slug: params.slug,
 		title: String(metadata.title || ''),
@@ -95,6 +138,9 @@ export const load: PageServerLoad = ({ params }) => {
 		alt: String(metadata.alt || ''),
 		lead: String(metadata.lead || ''),
 		content: contentHtml,
-		toc: tocHtml
+		toc: tocHtml,
+		prev,
+		next,
+		recentPosts
 	};
 };

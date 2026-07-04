@@ -1,6 +1,6 @@
 ---
-title: "O que é landing page "
-emphasis: "para Advogados"
+title: "Landing page "
+emphasis: "para SEO"
 hero: "Escopo, prazo, execução direta e critérios claros para contratar com mais assertividade."
 date: "11/06/2026"
 category: "agência"

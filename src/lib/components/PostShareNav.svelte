@@ -1,10 +1,25 @@
+<script lang="ts">
+	interface Props {
+		slug: string;
+		title: string;
+		prev: string | null;
+		next: string | null;
+	}
+
+	let { slug, title, prev, next }: Props = $props();
+
+	let postUrl = $derived(`https://theblacklist.digital/blog/${slug}/`);
+	let encodedUrl = $derived(encodeURIComponent(postUrl));
+	let encodedTitle = $derived(encodeURIComponent(title));
+</script>
+
 <section class="post-share-nav" aria-label="Compartilhar e navegar entre posts">
 	<div class="container post-share-nav-inner">
 		<div class="post-share-row">
 			<div class="post-share-links" aria-label="Compartilhar artigo">
 				<span>Compartilhe:</span>
 				<a
-					href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftheblacklist.digital%2Fblog%2Fcomo-escolher-agencia-marketing-saas%2F"
+					href="https://www.facebook.com/sharer/sharer.php?u={encodedUrl}"
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label="Compartilhar no Facebook"
@@ -16,7 +31,7 @@
 					</svg>
 				</a>
 				<a
-					href="https://twitter.com/intent/tweet?url=https%3A%2F%2Ftheblacklist.digital%2Fblog%2Fcomo-escolher-agencia-marketing-saas%2F&text=Como%20escolher%20ag%C3%AAncia%20de%20marketing%20digital%20para%20SaaS"
+					href="https://twitter.com/intent/tweet?url={encodedUrl}&text={encodedTitle}"
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label="Compartilhar no X"
@@ -28,7 +43,7 @@
 					</svg>
 				</a>
 				<a
-					href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheblacklist.digital%2Fblog%2Fcomo-escolher-agencia-marketing-saas%2F"
+					href="https://www.linkedin.com/sharing/share-offsite/?url={encodedUrl}"
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label="Compartilhar no LinkedIn"
@@ -43,19 +58,33 @@
 		</div>
 
 		<div class="post-nav-row" aria-label="Navegação entre posts">
-			<span class="post-nav-link is-disabled" aria-disabled="true">
-				<span aria-hidden="true">‹‹</span>
-				Anterior
-			</span>
-			<a class="post-nav-link" href="https://theblacklist.digital/blog/o-que-e-landing-page-saas/">
-				Próximo
-				<span aria-hidden="true">››</span>
-			</a>
+			{#if prev}
+				<a class="post-nav-link" href="/blog/{prev}/">
+					<span aria-hidden="true">‹‹</span>
+					Anterior
+				</a>
+			{:else}
+				<span class="post-nav-link is-disabled" aria-disabled="true">
+					<span aria-hidden="true">‹‹</span>
+					Anterior
+				</span>
+			{/if}
+			{#if next}
+				<a class="post-nav-link" href="/blog/{next}/">
+					Próximo
+					<span aria-hidden="true">››</span>
+				</a>
+			{:else}
+				<span class="post-nav-link is-disabled" aria-disabled="true">
+					Próximo
+					<span aria-hidden="true">››</span>
+				</span>
+			{/if}
 		</div>
 
 		<div class="post-blog-row">
 			<h2>Blog</h2>
-			<a class="post-blog-button" href="https://theblacklist.digital/blog/">Ver todos os posts</a>
+			<a class="post-blog-button" href="/blog/">Ver todos os posts</a>
 		</div>
 	</div>
 </section>
@@ -145,6 +174,11 @@
 	a.post-nav-link:focus-visible {
 		color: var(--accent);
 		outline: none;
+	}
+
+	a.post-nav-link:first-child:hover,
+	a.post-nav-link:first-child:focus-visible {
+		transform: translateX(-4px);
 	}
 
 	a.post-nav-link:last-child:hover,

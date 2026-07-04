@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import { reveal } from '$lib/actions/reveal';
 
 	let { data } = $props();
 
@@ -19,6 +20,11 @@
 <svelte:head>
 	<title>Blog — the blacklist</title>
 	<meta name="description" content="Artigos sobre marketing digital para SaaS" />
+	<meta property="og:title" content="Blog — the blacklist" />
+	<meta property="og:description" content="Artigos sobre marketing digital para SaaS" />
+	<meta property="og:url" content="https://theblacklist.digital/blog/" />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <Header />
@@ -38,9 +44,10 @@
 	<div class="container">
 		<div class="blog-grid">
 			{#each posts as post}
-				<a class="blog-card" href="/blog/{post.slug}">
+				<a class="blog-card" href="/blog/{post.slug}" use:reveal>
 					<div class="blog-card-cover">
 						<img
+							class="img-blur-up"
 							src="/assets/{post.image}"
 							alt=""
 							width="1200"
@@ -173,6 +180,7 @@
 		border-color: rgba(239, 19, 56, 0.34);
 		transform: translateY(-4px);
 		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.30);
+		transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 	}
 
 	.blog-card-cover {

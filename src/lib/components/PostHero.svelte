@@ -12,10 +12,7 @@
 </script>
 
 <section class="post-hero" aria-labelledby="post-title">
-	<video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-		<source src="/assets/hero-bg.webm" type="video/webm" />
-		<source src="/assets/hero-bg.mp4" type="video/mp4" />
-	</video>
+	<div class="hero-bg-glow" aria-hidden="true"></div>
 	<div class="post-hero-light" aria-hidden="true"></div>
 	<div class="hero-fade" aria-hidden="true"></div>
 	<div class="container post-hero-inner">
@@ -59,18 +56,27 @@
 		pointer-events: none;
 	}
 
-	.hero-bg-video {
+	.hero-bg-glow {
 		position: absolute;
-		inset: 0;
+		inset: -14% -12%;
 		z-index: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center;
-		opacity: 1;
 		pointer-events: none;
-		filter: blur(45px);
-		transform: scale(1.12);
+		background:
+			radial-gradient(ellipse 70% 50% at 50% 18%, rgba(239, 19, 56, 0.35) 0%, transparent 70%),
+			radial-gradient(ellipse 60% 40% at 30% 40%, rgba(150, 8, 28, 0.18) 0%, transparent 60%),
+			radial-gradient(ellipse 50% 38% at 70% 35%, rgba(200, 50, 70, 0.12) 0%, transparent 55%);
+		animation: glowPulse 6s ease-in-out infinite alternate;
+	}
+
+	@keyframes glowPulse {
+		0% {
+			opacity: 0.7;
+			transform: scale(1) translateY(0);
+		}
+		100% {
+			opacity: 1;
+			transform: scale(1.08) translateY(-10px);
+		}
 	}
 
 	.post-hero-light {
@@ -116,28 +122,6 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-	}
-
-	.pill {
-		display: inline-flex;
-		align-items: center;
-		gap: 10px;
-		border: 1px solid var(--accent);
-		border-radius: 999px;
-		padding: 7px 13px;
-		color: var(--text);
-		font-family: var(--font-meta);
-		font-size: 11px;
-		letter-spacing: 0.11em;
-		text-transform: uppercase;
-	}
-
-	.pill span {
-		width: 8px;
-		height: 8px;
-		border-radius: 999px;
-		background: var(--accent);
-		box-shadow: 0 0 18px rgba(239, 19, 56, 0.9);
 	}
 
 	.post-meta {

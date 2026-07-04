@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Button from './Button.svelte';
+
 	let mobileOpen = $state(false);
 	let servicesOpen = $state(false);
 
@@ -45,7 +47,7 @@
 		</nav>
 
 		<div class="nav-actions">
-			<a class="btn btn-primary btn-small" href="https://theblacklist.digital/contato/">Fale conosco</a>
+			<Button href="https://theblacklist.digital/contato/" variant="primary" size="small">Fale conosco</Button>
 			<button
 				class="mobile-toggle"
 				type="button"
@@ -195,7 +197,7 @@
 		color: var(--text);
 	}
 
-	.site-header .btn:hover {
+	.site-header :global(.btn):hover {
 		transform: none;
 		filter: brightness(1.08);
 	}
@@ -287,7 +289,7 @@
 			max-width: 42vw;
 		}
 
-		.nav-actions .btn {
+		.nav-actions :global(.btn) {
 			display: none;
 		}
 	}

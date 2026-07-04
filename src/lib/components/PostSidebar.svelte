@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Button from './Button.svelte';
+
 	interface Props {
 		toc: string;
 	}
@@ -17,7 +19,7 @@
 		<span>Próximo passo</span>
 		<h2>Quer entender se a Blacklist faz sentido para o seu SaaS?</h2>
 		<p>A conversa começa pelo contexto. Depois vem escopo, prazo e critério.</p>
-		<a class="btn btn-primary btn-small" href="https://theblacklist.digital/contato/">Fale conosco</a>
+		<Button href="https://theblacklist.digital/contato/" variant="primary" size="small">Fale conosco</Button>
 	</div>
 </aside>
 
