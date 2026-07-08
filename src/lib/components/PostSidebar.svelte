@@ -34,13 +34,13 @@
 	.post-sidebar-card {
 		padding: var(--space-base);
 		border: 1px solid var(--line);
-		border-radius: 8px;
-		background: rgba(255, 255, 255, 0.025);
+		border-radius: var(--radius);
+		background: var(--panel);
 	}
 
 	.post-sidebar-card p {
 		margin: 0 0 var(--space-md);
-		color: var(--accent);
+		color: var(--accent-dark);
 		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.14em;
@@ -62,7 +62,7 @@
 		display: block;
 		padding: 9px 0;
 		border-bottom: 1px solid var(--line-light);
-		color: var(--muted-2);
+		color: var(--muted);
 		font-size: 12px;
 		font-weight: 700;
 		line-height: 1.35;
@@ -76,7 +76,7 @@
 
 	.post-sidebar-card :global(a:hover),
 	.post-sidebar-card :global(a:focus-visible) {
-		color: #fff;
+		color: var(--accent-dark);
 		padding-left: 6px;
 		outline: none;
 	}
@@ -85,11 +85,9 @@
 		display: grid;
 		gap: 12px;
 		padding: var(--space-base);
-		border: 1px solid rgba(var(--accent-rgb), 0.34);
+		border: 1px solid rgba(var(--accent-rgb), 0.30);
 		border-radius: var(--radius);
-		background:
-			linear-gradient(145deg, rgba(var(--accent-rgb), 0.14), rgba(255, 255, 255, 0.025)),
-			rgba(255, 255, 255, 0.02);
+		background: var(--accent-soft);
 	}
 
 	.post-sidebar-cta span {
@@ -100,7 +98,7 @@
 		min-height: 24px;
 		padding: 6px var(--space-sm);
 		border-radius: 999px;
-		background: rgba(var(--accent-rgb), 0.16);
+		background: var(--accent);
 		color: var(--white);
 		font-size: var(--text-2xs);
 		font-weight: 800;
@@ -111,16 +109,17 @@
 
 	.post-sidebar-cta h2 {
 		margin: 0;
-		color: #fff;
+		color: var(--text);
 		font-size: 22px;
 		line-height: 1;
 		letter-spacing: 0.01em;
 		text-transform: uppercase;
+		font-weight: 800;
 	}
 
 	.post-sidebar-cta p {
 		margin: 0;
-		color: var(--muted-2);
+		color: var(--muted);
 		font-size: 12.5px;
 		line-height: 1.58;
 		letter-spacing: 0.02em;

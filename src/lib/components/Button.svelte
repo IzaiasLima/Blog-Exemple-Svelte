@@ -26,17 +26,35 @@
 		font-size: var(--text-base);
 		font-weight: 700;
 		line-height: 1;
-		transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+		transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
 	}
 
 	:global(.btn:hover) {
-		transform: translateY(-1px);
+		transform: scale(1.04);
 	}
 
+	/* VTAQUINO primary */
 	:global(.btn-primary) {
-		background: var(--accent);
-		border-color: var(--accent);
+		background: var(--accent-gradient);
+		border-color: transparent;
 		color: #fff;
+		box-shadow: 0 12px 26px rgba(223, 31, 46, 0.32);
+	}
+
+	:global(.btn-primary:hover) {
+		box-shadow: 0 16px 32px rgba(223, 31, 46, 0.42);
+	}
+
+	/* VTAQUINO secondary */
+	:global(.btn-secondary) {
+		border-color: var(--accent);
+		background: var(--panel);
+		color: var(--text);
+	}
+
+	:global(.btn-secondary:hover) {
+		border-color: var(--accent-dark);
+		background: var(--accent-soft);
 	}
 
 	:global(.btn-small) {

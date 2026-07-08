@@ -1,22 +1,24 @@
-/* ===== Shared Card Styles ===== */
+/* ===== VTAQUINO Card Styles (Light Mode) ===== */
 
 /* Card base */
 .card {
 	display: grid;
 	grid-template-rows: auto 1fr;
 	border: 1px solid var(--line);
-	border-radius: var(--radius-lg);
-	background: var(--card);
+	border-radius: var(--radius);
+	background: var(--panel);
 	overflow: hidden;
 	text-decoration: none;
-	transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	transition: border-color var(--transition-base),
+		transform var(--transition-base),
+		box-shadow var(--transition-base);
 }
 
 .card:hover {
-	border-color: rgba(var(--accent-rgb), 0.34);
-	transform: translateY(-4px);
+	border-color: var(--accent);
+	transform: translateY(-3px);
 	box-shadow: var(--shadow-card);
-	transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 /* Card cover */
@@ -34,7 +36,7 @@
 }
 
 .card:hover .card-cover img {
-	transform: scale(1.03);
+	transform: scale(1.05);
 }
 
 /* Card body */
@@ -44,7 +46,7 @@
 	padding: clamp(18px, 2vw, 28px);
 }
 
-/* Card meta row */
+/* Card meta row — light mode */
 .card-meta {
 	display: flex;
 	align-items: center;
@@ -57,7 +59,7 @@
 	align-items: center;
 	min-height: 22px;
 	padding: 5px 9px;
-	border: 1px solid var(--line-mid);
+	border: 1px solid var(--line);
 	border-radius: 999px;
 	color: var(--muted);
 	font-size: var(--text-2xs);
@@ -68,9 +70,9 @@
 }
 
 .card-category {
-	border-color: rgba(var(--accent-rgb), 0.60) !important;
-	background: rgba(var(--accent-rgb), 0.10);
-	color: var(--white) !important;
+	border-color: rgba(var(--accent-rgb), 0.50) !important;
+	background: rgba(var(--accent-rgb), 0.08);
+	color: var(--accent-dark) !important;
 }
 
 /* Card heading */
@@ -79,9 +81,9 @@
 	margin: 0;
 	font-size: clamp(22px, 1.8vw, 28px);
 	line-height: 1.05;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	color: var(--text);
-	font-weight: 400;
+	font-weight: 800;
 }
 
 .card-body h2 strong,
@@ -90,10 +92,10 @@
 }
 
 .card-body h3 strong {
-	font-weight: 400;
+	font-weight: 800;
 }
 
-/* Card description */
+/* Card description — light mode */
 .card-body p {
 	margin: 0;
 	color: var(--muted);
@@ -104,15 +106,19 @@
 
 /* Card CTA */
 .card-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
 	color: var(--accent);
 	font-size: 12px;
 	font-weight: 700;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	transition: letter-spacing var(--transition-fast);
+	transition: gap var(--transition-fast), letter-spacing var(--transition-fast);
 }
 
 .card:hover .card-cta {
+	gap: 10px;
 	letter-spacing: 0.12em;
 }
 

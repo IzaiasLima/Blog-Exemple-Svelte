@@ -49,6 +49,6 @@
 			<h2>{title}<strong> {emphasis}</strong></h2>
 		{/if}
 		<p>{description}</p>
-		<span class="card-cta">Ler artigo →</span>
+		<span class="card-cta">Ler artigo <span aria-hidden="true">→</span></span>
 	</div>
 </a>

@@ -16,11 +16,11 @@
 </script>
 
 {#if posts.length > 0}
-<section class="related-posts" aria-label="Artigos recentes">
+<section class="related-posts" aria-label="Artigos Recentes">
 	<div class="container">
 		<div class="related-heading">
 			<p class="pill"><span></span> Blog</p>
-			<h2>Artigos <strong>recentes</strong></h2>
+			<h2>Artigos <strong>Recentes</strong></h2>
 		</div>
 		<div class="related-grid">
 			{#each posts as post}
@@ -43,7 +43,7 @@
 
 <style>
 	.related-posts {
-		padding: 0 0 120px;
+		padding: 0 0 80px;
 		background: var(--bg);
 	}
 
@@ -60,16 +60,15 @@
 		color: var(--text);
 		font-size: clamp(44px, 4.4vw, 68px);
 		line-height: 0.95;
-		text-transform: uppercase;
+		/* text-transform: uppercase; */
 		text-align: right;
-		font-weight: 400;
-		font-family: var(--font-display);
+		font-weight: 800;
 	}
 
 	.related-heading h2 strong {
 		color: var(--accent);
 		font-family: inherit;
-		font-weight: 400;
+		font-weight: 800;
 	}
 
 	.related-grid {
@@ -94,7 +93,7 @@
 
 	@media (max-width: 720px) {
 		.related-posts {
-			padding-bottom: 90px;
+			padding-bottom: 64px;
 		}
 	}
 

@@ -55,7 +55,7 @@
 
 <style>
 	.blog-listing {
-		padding: 0 0 120px;
+		padding: 120px 0;
 		background: var(--bg);
 	}
 

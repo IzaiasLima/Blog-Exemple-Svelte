@@ -13,7 +13,7 @@
 <header class="site-header" data-header="">
 	<div class="container nav-shell">
 		<a class="brand" href="https://theblacklist.digital/" aria-label="a Blacklist">
-			<img src="/assets/logo-nav-figma.svg" alt="the blacklist" />
+			<img src="/assets/logo-vtaquino-header.png" alt="the blacklist" />
 		</a>
 
 		<nav class="desktop-nav" aria-label="Navegação principal">
@@ -98,9 +98,7 @@
 	}
 
 	.brand img {
-		width: 141px;
-		height: 22.956px;
-		aspect-ratio: 141 / 22.956;
+		width: 115px;
 		object-fit: contain;
 	}
 

@@ -40,18 +40,18 @@
 
 <style>
 	.post-article {
-		padding: 0 0 125px;
+		padding: 0 0 80px;
 		background: var(--bg);
 	}
 
 	.post-article-shell {
 		overflow: visible;
 		padding: clamp(22px, 2.7vw, 52px);
-		border-top: 15px solid var(--accent);
-		border-bottom: 15px solid var(--accent);
+		/* border-top: 4px solid var(--accent);
+		border-bottom: 4px solid var(--accent);
 		border-radius: clamp(18px, 2.2vw, 32px);
-		background: var(--bg-alt);
-		box-shadow: var(--shadow-image);
+		background: var(--panel);
+		box-shadow: var(--shadow-card); */
 	}
 
 	.post-cover {
@@ -64,7 +64,7 @@
 		aspect-ratio: 1200 / 630;
 		display: block;
 		border-radius: clamp(14px, 1.6vw, 24px);
-		object-fit: contain;
+		object-fit: cover;
 		box-shadow: var(--shadow-image);
 	}
 
@@ -101,23 +101,25 @@
 		font-size: clamp(34px, 3vw, 52px);
 		line-height: 1;
 		letter-spacing: 0.01em;
-		text-transform: uppercase;
+		/* text-transform: uppercase; */
+		font-weight: 800;
 	}
 
 	.post-content :global(p) {
 		max-width: 780px;
 		margin: 0 0 14px;
-		color: var(--muted-2);
+		color: var(--muted);
 		font-size: clamp(15px, 0.95vw, 17px);
 		line-height: 1.72;
 		letter-spacing: 0.015em;
 	}
 
 	.post-content :global(.post-lead) {
-		color: #fff;
+		color: var(--text);
 		font-size: clamp(17px, 1.15vw, 20px);
 		line-height: 1.58;
 		letter-spacing: 0.01em;
+		font-weight: 600;
 	}
 
 	.post-content :global(p:last-child) {
@@ -125,11 +127,11 @@
 	}
 
 	.post-content :global(a) {
-		color: #fff;
+		color: var(--accent-dark);
 		font-weight: 700;
 		text-decoration: underline;
-		text-decoration-color: rgba(var(--accent-rgb), 0.72);
-		text-underline-offset: 5px;
+		text-decoration-color: rgba(var(--accent-rgb), 0.40);
+		text-underline-offset: 3px;
 	}
 
 	.post-content :global(ul) {
@@ -143,7 +145,7 @@
 	.post-content :global(li) {
 		position: relative;
 		padding-left: 20px;
-		color: var(--muted-2);
+		color: var(--muted);
 		font-size: clamp(14px, 0.92vw, 16px);
 		line-height: 1.62;
 		letter-spacing: 0.01em;
@@ -158,7 +160,6 @@
 		height: 6px;
 		border-radius: 50%;
 		background: var(--accent);
-		box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.64);
 	}
 
 	.post-content :global(table) {
@@ -169,8 +170,8 @@
 	.post-content :global(th),
 	.post-content :global(td) {
 		padding: 14px 16px;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-		color: var(--muted-2);
+		border-bottom: 1px solid var(--line);
+		color: var(--muted);
 		font-size: 12.5px;
 		line-height: 1.5;
 		letter-spacing: 0.015em;
@@ -178,8 +179,8 @@
 	}
 
 	.post-content :global(th) {
-		color: #fff;
-		background: rgba(var(--accent-rgb), 0.14);
+		color: var(--text);
+		background: rgba(var(--accent-rgb), 0.06);
 		font-size: 10px;
 		font-weight: 700;
 		letter-spacing: 0.14em;
@@ -187,7 +188,7 @@
 	}
 
 	.post-content :global(td:first-child) {
-		color: #fff;
+		color: var(--text);
 		font-weight: 700;
 	}
 
@@ -208,25 +209,22 @@
 
 	@media (max-width: 720px) {
 		.post-article {
-			padding-bottom: 104px;
+			padding-bottom: 64px;
 		}
 	}
 
 	@media (max-width: 560px) {
 		.post-article-shell {
-			border-top-width: 10px;
-			border-bottom-width: 10px;
+			border-top-width: 3px;
+			border-bottom-width: 3px;
 		}
 
 		.post-content :global(h2) {
-			font-size: clamp(30px, 9vw, 42px);
 			text-align: center;
 		}
 
 		.post-content :global(p) {
 			font-size: 14.5px;
-			line-height: 1.68;
-			letter-spacing: 0.01em;
 		}
 
 		.post-content :global(.post-lead) {
