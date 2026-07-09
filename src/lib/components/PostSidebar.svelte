@@ -17,9 +17,9 @@
 	</div>
 	<div class="post-sidebar-cta">
 		<span>Próximo passo</span>
-		<h2>Quer entender se a Blacklist faz sentido para o seu SaaS?</h2>
-		<p>A conversa começa pelo contexto. Depois vem escopo, prazo e critério.</p>
-		<Button href="https://theblacklist.digital/contato/" variant="primary" size="small">Fale conosco</Button>
+		<h2>Vamos conversar sobre seu projeto?</h2>
+		<p>Solicite um orçamento ou tire dúvidas sobre nossos serviços de proteção contra incêndio.</p>
+		<Button href="/#contato" variant="primary" size="small">Fale conosco</Button>
 	</div>
 </aside>
 
@@ -133,6 +133,11 @@
 	@media (max-width: 920px) {
 		.post-sidebar {
 			position: static;
+		}
+
+		.post-sidebar-card nav {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			column-gap: 18px;
 		}
 
 		.post-sidebar-card nav :global(a) {

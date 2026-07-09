@@ -8,7 +8,7 @@
 
 	let { slug, title, prev, next }: Props = $props();
 
-	let postUrl = $derived(`https://theblacklist.digital/blog/${slug}/`);
+	let postUrl = $derived(`https://vtaquino.com.br/blog/${slug}/`);
 	let encodedUrl = $derived(encodeURIComponent(postUrl));
 	let encodedTitle = $derived(encodeURIComponent(title));
 </script>
@@ -105,19 +105,19 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 48px;
+		margin-bottom: var(--space-xl);
 	}
 
 	.post-share-links {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 18px;
+		gap: var(--space-base);
 	}
 
 	.post-share-links span {
 		color: var(--accent);
-		font-size: 13px;
+		font-size: var(--text-sm);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 	}
@@ -150,16 +150,16 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 24px;
-		margin-bottom: 48px;
+		gap: var(--space-lg);
+		margin-bottom: var(--space-xl);
 	}
 
 	.post-nav-link {
 		display: inline-flex;
 		align-items: center;
-		gap: 10px;
+		gap: var(--space-sm);
 		color: var(--text);
-		font-size: 13px;
+		font-size: var(--text-sm);
 		font-weight: 800;
 		line-height: 1;
 		letter-spacing: 0.08em;
@@ -202,7 +202,7 @@
 		align-items: end;
 		justify-content: space-between;
 		gap: 28px;
-		padding-bottom: 18px;
+		padding-bottom: var(--space-base);
 		border-bottom: 1px solid rgba(var(--accent-rgb), 0.30);
 	}
 

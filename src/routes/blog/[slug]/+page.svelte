@@ -8,15 +8,15 @@
 
 	let { data } = $props();
 
-	let pageTitle = $derived(`${data.title} ${data.emphasis} — the blacklist`);
-	let pageUrl = $derived(`https://theblacklist.digital/blog/${data.slug}/`);
+	let pageTitle = $derived(`${data.title} ${data.emphasis} — VTAQUINO`);
+	let pageUrl = $derived(`https://vtaquino.com.br/blog/${data.slug}/`);
 </script>
 
 <svelte:head>
 	<title>{pageTitle}</title>
 	<meta property="og:title" content="{data.title} {data.emphasis}" />
 	<meta property="og:description" content="{data.description}" />
-	<meta property="og:image" content="https://theblacklist.digital/assets/{data.image}" />
+	<meta property="og:image" content="https://vtaquino.com.br/assets/{data.image}" />
 	<meta property="og:url" content="{pageUrl}" />
 	<meta property="og:type" content="article" />
 	<meta name="twitter:card" content="summary_large_image" />

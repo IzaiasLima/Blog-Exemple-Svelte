@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from './Button.svelte';
+	import { navRoutes, servicesSubRoutes } from '$lib/data/routes';
 
 	let mobileOpen = $state(false);
 	let servicesOpen = $state(false);
@@ -12,42 +13,43 @@
 
 <header class="site-header" data-header="">
 	<div class="container nav-shell">
-		<a class="brand" href="https://theblacklist.digital/" aria-label="a Blacklist">
-			<img src="/assets/logo-vtaquino-header.png" alt="the blacklist" />
+		<a class="brand" href="/" aria-label="VTAQUINO — Fire Consultancy">
+			<img src="/assets/logo-vtaquino-header.png" alt="VTAQUINO" />
 		</a>
 
 		<nav class="desktop-nav" aria-label="Navegação principal">
-			<div class="nav-dropdown">
-				<button
-					class="nav-link nav-button"
-					type="button"
-					aria-expanded={servicesOpen}
-					onclick={() => (servicesOpen = !servicesOpen)}
-				>
-					Serviços
-					<img
-						class="nav-chevron"
-						src="/assets/nav-chevron-figma.svg"
-						alt=""
-						aria-hidden="true"
-						loading="lazy"
-					/>
-				</button>
-				<div class="services-menu" class:is-open={servicesOpen} data-services-menu="">
-					<a href="https://theblacklist.digital/landing-page-para-saas/">Landing pages</a>
-					<a href="https://theblacklist.digital/trafego-pago-para-saas/">Tráfego pago</a>
-					<a href="https://theblacklist.digital/design-para-saas/">Design estratégico</a>
-					<a href="https://theblacklist.digital/seo-para-saas/">SEO</a>
-					<a href="https://theblacklist.digital/social-media-para-saas/">Social media</a>
-				</div>
-			</div>
-			<a class="nav-link" href="https://theblacklist.digital/sobre/">Sobre</a>
-			<a class="nav-link is-active" href="https://theblacklist.digital/blog/">Blog</a>
-			<a class="nav-link" href="https://theblacklist.digital/contato/">Contato</a>
+			{#each navRoutes as route}
+				{#if route.label === 'Serviços'}
+					<div class="nav-dropdown">
+						<button
+							class="nav-link nav-button"
+							type="button"
+							aria-expanded={servicesOpen}
+							onclick={() => (servicesOpen = !servicesOpen)}
+						>
+							{route.label}
+							<img
+								class="nav-chevron"
+								src="/assets/nav-chevron-figma.svg"
+								alt=""
+								aria-hidden="true"
+								loading="lazy"
+							/>
+						</button>
+						<div class="services-menu" class:is-open={servicesOpen} data-services-menu="">
+							{#each servicesSubRoutes as sub}
+								<a href={sub.href}>{sub.label}</a>
+							{/each}
+						</div>
+					</div>
+				{:else}
+					<a class="nav-link" href={route.href}>{route.label}</a>
+				{/if}
+			{/each}
 		</nav>
 
 		<div class="nav-actions">
-			<Button href="https://theblacklist.digital/contato/" variant="primary" size="small">Fale conosco</Button>
+			<Button href="/#contato" variant="primary" size="small">Fale conosco</Button>
 			<button
 				class="mobile-toggle"
 				type="button"
@@ -62,14 +64,13 @@
 	</div>
 
 	<div class="mobile-menu" class:is-open={mobileOpen} data-mobile-menu="">
-		<a href="https://theblacklist.digital/landing-page-para-saas/">Landing pages</a>
-		<a href="https://theblacklist.digital/trafego-pago-para-saas/">Tráfego pago</a>
-		<a href="https://theblacklist.digital/design-para-saas/">Design estratégico</a>
-		<a href="https://theblacklist.digital/seo-para-saas/">SEO</a>
-		<a href="https://theblacklist.digital/social-media-para-saas/">Social media</a>
-		<a href="https://theblacklist.digital/sobre/">Sobre</a>
-		<a href="https://theblacklist.digital/blog/">Blog</a>
-		<a href="https://theblacklist.digital/contato/">Contato</a>
+		{#each navRoutes.filter(r => r.label !== 'Serviços') as route}
+			<a href={route.href}>{route.label}</a>
+		{/each}
+		<div class="mobile-menu-divider">Serviços</div>
+		{#each servicesSubRoutes as sub}
+			<a href={sub.href}>{sub.label}</a>
+		{/each}
 	</div>
 </header>
 
@@ -119,10 +120,6 @@
 
 	.nav-link:hover,
 	.nav-link:focus-visible {
-		color: var(--text);
-	}
-
-	.nav-link.is-active {
 		color: var(--text);
 	}
 

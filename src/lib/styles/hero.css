@@ -78,21 +78,21 @@
 
 .hero-fx::before {
 	text-shadow:
-		60px 60px rgba(223, 31, 46, 0.12),
-		140px 120px rgba(223, 31, 46, 0.09),
+		60px 60px rgba(var(--accent-rgb), 0.12),
+		140px 120px rgba(var(--accent-rgb), 0.09),
 		220px 40px rgba(255, 90, 90, 0.10),
-		300px 180px rgba(223, 31, 46, 0.08),
+		300px 180px rgba(var(--accent-rgb), 0.08),
 		380px 80px rgba(255, 90, 90, 0.09),
-		460px 200px rgba(223, 31, 46, 0.10),
-		540px 100px rgba(223, 31, 46, 0.08),
+		460px 200px rgba(var(--accent-rgb), 0.10),
+		540px 100px rgba(var(--accent-rgb), 0.08),
 		620px 220px rgba(255, 90, 90, 0.09),
-		700px 60px rgba(223, 31, 46, 0.12),
-		780px 160px rgba(223, 31, 46, 0.08),
+		700px 60px rgba(var(--accent-rgb), 0.12),
+		780px 160px rgba(var(--accent-rgb), 0.08),
 		860px 50px rgba(255, 90, 90, 0.10),
-		940px 190px rgba(223, 31, 46, 0.09),
-		1020px 110px rgba(223, 31, 46, 0.08),
+		940px 190px rgba(var(--accent-rgb), 0.09),
+		1020px 110px rgba(var(--accent-rgb), 0.08),
 		1100px 30px rgba(255, 90, 90, 0.09),
-		1180px 140px rgba(223, 31, 46, 0.10);
+		1180px 140px rgba(var(--accent-rgb), 0.10);
 	animation-duration: 22s;
 	animation-delay: -6s;
 }
@@ -100,19 +100,19 @@
 .hero-fx::after {
 	text-shadow:
 		100px 200px rgba(255, 90, 90, 0.08),
-		200px 40px rgba(223, 31, 46, 0.10),
-		320px 160px rgba(223, 31, 46, 0.09),
+		200px 40px rgba(var(--accent-rgb), 0.10),
+		320px 160px rgba(var(--accent-rgb), 0.09),
 		420px 80px rgba(255, 90, 90, 0.08),
-		500px 240px rgba(223, 31, 46, 0.10),
-		600px 120px rgba(223, 31, 46, 0.08),
+		500px 240px rgba(var(--accent-rgb), 0.10),
+		600px 120px rgba(var(--accent-rgb), 0.08),
 		680px 20px rgba(255, 90, 90, 0.09),
-		760px 180px rgba(223, 31, 46, 0.12),
-		840px 60px rgba(223, 31, 46, 0.09),
+		760px 180px rgba(var(--accent-rgb), 0.12),
+		840px 60px rgba(var(--accent-rgb), 0.09),
 		920px 200px rgba(255, 90, 90, 0.08),
-		1000px 100px rgba(223, 31, 46, 0.10),
-		1080px 40px rgba(223, 31, 46, 0.08),
+		1000px 100px rgba(var(--accent-rgb), 0.10),
+		1080px 40px rgba(var(--accent-rgb), 0.08),
 		1160px 220px rgba(255, 90, 90, 0.09),
-		1240px 140px rgba(223, 31, 46, 0.08);
+		1240px 140px rgba(var(--accent-rgb), 0.08);
 	animation-duration: 18s;
 	animation-delay: -11s;
 }

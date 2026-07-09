@@ -200,11 +200,6 @@
 		.post-layout {
 			grid-template-columns: 1fr;
 		}
-
-	:global(.post-sidebar-card nav) {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		column-gap: 18px;
-	}
 	}
 
 	@media (max-width: 720px) {

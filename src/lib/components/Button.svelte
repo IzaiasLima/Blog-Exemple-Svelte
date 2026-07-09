@@ -38,11 +38,11 @@
 		background: var(--accent-gradient);
 		border-color: transparent;
 		color: #fff;
-		box-shadow: 0 12px 26px rgba(223, 31, 46, 0.32);
+		box-shadow: 0 12px 26px rgba(var(--accent-rgb), 0.32);
 	}
 
 	:global(.btn-primary:hover) {
-		box-shadow: 0 16px 32px rgba(223, 31, 46, 0.42);
+		box-shadow: 0 16px 32px rgba(var(--accent-rgb), 0.42);
 	}
 
 	/* VTAQUINO secondary */

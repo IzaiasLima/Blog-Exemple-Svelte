@@ -19,11 +19,11 @@
 </script>
 
 <svelte:head>
-	<title>The Blacklist - Blog</title>
-	<meta name="description" content="Artigos sobre marketing digital para SaaS" />
-	<meta property="og:title" content="Blog — the blacklist" />
-	<meta property="og:description" content="Artigos sobre marketing digital para SaaS" />
-	<meta property="og:url" content="https://theblacklist.digital/blog/" />
+	<title>VTAQUINO - Blog</title>
+	<meta name="description" content="Artigos sobre proteção contra incêndio, segurança e prevenção" />
+	<meta property="og:title" content="Blog — VTAQUINO" />
+	<meta property="og:description" content="Artigos sobre proteção contra incêndio, segurança e prevenção" />
+	<meta property="og:url" content="https://vtaquino.com.br/blog/" />
 	<meta property="og:type" content="website" />
 	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
