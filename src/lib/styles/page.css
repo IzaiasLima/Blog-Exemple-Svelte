@@ -1,0 +1,77 @@
+/* ===== Shared Internal Page Styles ===== */
+
+/* Hero base */
+.page-hero {
+	padding: 140px 0 60px;
+	background:
+		radial-gradient(circle at 50% 30%, rgba(var(--accent-rgb), 0.06), transparent 28rem),
+		var(--panel-2);
+	text-align: center;
+}
+
+.page-hero-inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.page-hero h1 {
+	font-weight: 800;
+	text-wrap: balance;
+}
+
+.page-hero h1 strong {
+	display: block;
+	color: var(--accent);
+}
+
+.page-hero-copy {
+	color: var(--muted);
+	font-size: 15px;
+	line-height: 1.7;
+	text-align: center;
+	margin: 0;
+}
+
+/* Section base */
+.page-section {
+	padding: 60px 0 100px;
+	background: var(--bg);
+}
+
+/* Stat cards (used in Quem Somos and Consultoria) */
+.stat-card {
+	display: grid;
+	gap: 4px;
+	padding: var(--space-lg) var(--space-base);
+	text-align: center;
+}
+
+.stat-number {
+	font-family: var(--font-display);
+	font-size: 2.8rem;
+	font-weight: 800;
+	color: var(--accent);
+	line-height: 1;
+}
+
+.stat-label {
+	color: var(--muted);
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+}
+
+/* Breakpoints */
+@media (max-width: 920px) {
+	.page-hero { padding-top: 120px; }
+}
+
+@media (max-width: 720px) {
+	.page-hero { padding: 110px 0 40px; }
+	.page-section { padding: 40px 0 72px; }
+}
+
+@media (max-width: 560px) {
+	.page-hero h1 { font-size: clamp(1.8rem, 10vw, 2.8rem); }
+}

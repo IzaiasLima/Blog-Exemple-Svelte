@@ -121,6 +121,7 @@
 	from {
 		transform: translateY(8vh);
 	}
+
 	to {
 		transform: translateY(-46vh);
 	}

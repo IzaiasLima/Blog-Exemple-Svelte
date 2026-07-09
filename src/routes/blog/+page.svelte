@@ -23,8 +23,9 @@
 	<meta name="description" content="Artigos sobre proteção contra incêndio, segurança e prevenção" />
 	<meta property="og:title" content="Blog — VTAQUINO" />
 	<meta property="og:description" content="Artigos sobre proteção contra incêndio, segurança e prevenção" />
-	<meta property="og:url" content="https://vtaquino.com.br/blog/" />
+	<meta property="og:url" content="https://vtaquino.eng.br/blog/" />
 	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://vtaquino.eng.br/assets/og-image.jpg" />
 	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 

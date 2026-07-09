@@ -17,8 +17,8 @@
 	--subtle: #838386;
 
 	/* Red palette (VTAQUINO) */
-	--accent: #df1f2e;
-	--accent-dark: #a11723;
+	--accent: #b31c28;
+	--accent-dark: #751119;
 	--accent-light: #ff5a5a;
 	--accent-soft: #fbeaea;
 	--accent-rgb: 223, 31, 46;
@@ -32,8 +32,6 @@
 
 	/* Surfaces */
 	--card: var(--panel);
-	--card-strong: rgba(0, 0, 0, 0.22);
-	--card-hover-border: var(--accent);
 
 	/* Typography scale */
 	--text-2xs: 9px;
@@ -56,9 +54,7 @@
 
 	/* Shadows — VTAQUINO */
 	--shadow-menu: 0 18px 60px rgba(0, 0, 0, 0.15);
-	--shadow-card: 0 20px 45px rgba(0, 0, 0, 0.10);
 	--shadow-image: 0 30px 90px rgba(0, 0, 0, 0.12);
-	--shadow-hover: 0 25px 50px rgba(223, 31, 46, 0.10);
 
 	/* Easing */
 	--ease-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -117,7 +113,12 @@ h3 {
 	font-weight: 700;
 }
 
-p, a, button, summary, li, span {
+p,
+a,
+button,
+summary,
+li,
+span {
 	font-family: var(--font-body);
 }
 
@@ -170,6 +171,7 @@ button {
 		opacity: 0;
 		filter: blur(20px);
 	}
+
 	100% {
 		opacity: 1;
 		filter: blur(0);

@@ -47,11 +47,6 @@
 	.post-article-shell {
 		overflow: visible;
 		padding: clamp(22px, 2.7vw, 52px);
-		/* border-top: 4px solid var(--accent);
-		border-bottom: 4px solid var(--accent);
-		border-radius: clamp(18px, 2.2vw, 32px);
-		background: var(--panel);
-		box-shadow: var(--shadow-card); */
 	}
 
 	.post-cover {

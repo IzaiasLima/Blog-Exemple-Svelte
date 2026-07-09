@@ -8,7 +8,7 @@
 
 	let { slug, title, prev, next }: Props = $props();
 
-	let postUrl = $derived(`https://vtaquino.com.br/blog/${slug}/`);
+	let postUrl = $derived(`https://vtaquino.eng.br/blog/${slug}/`);
 	let encodedUrl = $derived(encodeURIComponent(postUrl));
 	let encodedTitle = $derived(encodeURIComponent(title));
 </script>

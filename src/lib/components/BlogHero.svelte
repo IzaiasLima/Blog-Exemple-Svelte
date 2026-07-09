@@ -2,9 +2,9 @@
 	<div class="hero-fx" aria-hidden="true"></div>
 	<div class="container hero-inner">
 		<p class="pill"><span></span> Blog</p>
-		<h1 class="hero-title-gradient">Artigos &<br /><strong class="hero-strong">Insights</strong></h1>
+		<h1 class="hero-title-gradient">Artigos & <strong class="hero-strong">Insights</strong></h1>
 		<p class="hero-copy blog-hero-copy">
-			Estratégia, execução e critério para decisões de marketing digital.
+			Estratégias, execução e critério para decisões conscientes sobre proteção contra incêndio, segurança e prevenção.
 		</p>
 	</div>
 </section>
@@ -27,6 +27,10 @@
 
 	.blog-hero-copy {
 		max-width: 560px;
+	}
+
+	.blog-hero h1 strong {
+		display: inline-block;
 	}
 
 	@media (max-width: 920px) {

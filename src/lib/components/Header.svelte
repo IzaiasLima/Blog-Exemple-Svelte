@@ -1,9 +1,7 @@
 <script lang="ts">
-	import Button from './Button.svelte';
-	import { navRoutes, servicesSubRoutes } from '$lib/data/routes';
+	import { navRoutes } from '$lib/data/routes';
 
 	let mobileOpen = $state(false);
-	let servicesOpen = $state(false);
 
 	function toggleMobile() {
 		mobileOpen = !mobileOpen;
@@ -13,63 +11,31 @@
 
 <header class="site-header" data-header="">
 	<div class="container nav-shell">
-		<a class="brand" href="/" aria-label="VTAQUINO — Fire Consultancy">
+		<a class="brand" href="/" aria-label="VTAQUINO — Engenharia de Proteção Contra Incêndio">
 			<img src="/assets/logo-vtaquino-header.png" alt="VTAQUINO" />
 		</a>
 
 		<nav class="desktop-nav" aria-label="Navegação principal">
 			{#each navRoutes as route}
-				{#if route.label === 'Serviços'}
-					<div class="nav-dropdown">
-						<button
-							class="nav-link nav-button"
-							type="button"
-							aria-expanded={servicesOpen}
-							onclick={() => (servicesOpen = !servicesOpen)}
-						>
-							{route.label}
-							<img
-								class="nav-chevron"
-								src="/assets/nav-chevron-figma.svg"
-								alt=""
-								aria-hidden="true"
-								loading="lazy"
-							/>
-						</button>
-						<div class="services-menu" class:is-open={servicesOpen} data-services-menu="">
-							{#each servicesSubRoutes as sub}
-								<a href={sub.href}>{sub.label}</a>
-							{/each}
-						</div>
-					</div>
-				{:else}
-					<a class="nav-link" href={route.href}>{route.label}</a>
-				{/if}
+				<a class="nav-link" href={route.href}>{route.label}</a>
 			{/each}
 		</nav>
 
-		<div class="nav-actions">
-			<Button href="/#contato" variant="primary" size="small">Fale conosco</Button>
-			<button
-				class="mobile-toggle"
-				type="button"
-				aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
-				aria-expanded={mobileOpen}
-				onclick={toggleMobile}
-			>
-				<span></span>
-				<span></span>
-			</button>
-		</div>
+		<button
+			class="mobile-toggle"
+			type="button"
+			aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
+			aria-expanded={mobileOpen}
+			onclick={toggleMobile}
+		>
+			<span></span>
+			<span></span>
+		</button>
 	</div>
 
 	<div class="mobile-menu" class:is-open={mobileOpen} data-mobile-menu="">
-		{#each navRoutes.filter(r => r.label !== 'Serviços') as route}
+		{#each navRoutes as route}
 			<a href={route.href}>{route.label}</a>
-		{/each}
-		<div class="mobile-menu-divider">Serviços</div>
-		{#each servicesSubRoutes as sub}
-			<a href={sub.href}>{sub.label}</a>
 		{/each}
 	</div>
 </header>
@@ -89,9 +55,11 @@
 	}
 
 	.nav-shell {
-		width: min(1116px, calc(100% - 32px));
+		width: 100%;
+		max-width: 1920px;
 		min-height: 72px;
 		margin: 0 auto;
+		padding: 0 24px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -103,16 +71,16 @@
 		object-fit: contain;
 	}
 
-	.desktop-nav,
-	.nav-actions {
+	.desktop-nav {
 		display: flex;
 		align-items: center;
 		gap: var(--space-xs);
+		margin-left: auto;
 	}
 
 	.nav-link {
 		color: var(--muted);
-		font-size: var(--text-sm);
+		font-size: var(--text-base);
 		font-weight: 500;
 		padding: var(--space-xs) var(--space-sm);
 		transition: color var(--transition-fast);
@@ -123,62 +91,6 @@
 		color: var(--text);
 	}
 
-	.nav-button {
-		display: flex;
-		align-items: center;
-		gap: 5px;
-		border: 0;
-		background: transparent;
-		cursor: pointer;
-	}
-
-	.nav-chevron {
-		width: 12px;
-		height: 12px;
-		flex: 0 0 auto;
-	}
-
-	.nav-dropdown {
-		position: relative;
-	}
-
-	.services-menu {
-		position: absolute;
-		top: calc(100% + 12px);
-		left: 0;
-		width: 250px;
-		padding: var(--space-xs);
-		border: 1px solid var(--line);
-		border-radius: var(--radius);
-		background: var(--bg);
-		box-shadow: var(--shadow-menu);
-		opacity: 0;
-		visibility: hidden;
-		transform: translateY(-4px);
-		transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
-		display: grid;
-	}
-
-	.services-menu.is-open,
-	.nav-dropdown:hover .services-menu {
-		opacity: 1;
-		visibility: visible;
-		transform: translateY(0);
-	}
-
-	.services-menu a {
-		display: flex;
-		align-items: center;
-		gap: 9px;
-		color: var(--muted-2);
-		font-size: var(--text-sm);
-		font-weight: 600;
-		padding: var(--space-sm) 12px;
-		border-radius: 6px;
-		transition: background var(--transition-fast), color var(--transition-fast);
-	}
-
-	.services-menu a::before,
 	.mobile-menu a::before {
 		content: '';
 		width: 5px;
@@ -186,16 +98,6 @@
 		flex: 0 0 auto;
 		border-radius: 50%;
 		background: var(--accent);
-	}
-
-	.services-menu a:hover {
-		background: var(--card);
-		color: var(--text);
-	}
-
-	.site-header :global(.btn):hover {
-		transform: none;
-		filter: brightness(1.08);
 	}
 
 	.mobile-toggle {
@@ -221,13 +123,15 @@
 
 	.mobile-menu {
 		display: none;
-		width: min(var(--page-width), var(--max));
+		width: 100%;
+		max-width: 1920px;
 		margin: 0 auto var(--space-base);
-		padding: 12px;
+		padding: 12px 16px;
 		border: 1px solid var(--line);
 		border-radius: var(--radius);
 		background: var(--bg);
 		box-shadow: var(--shadow-menu);
+		box-sizing: border-box;
 	}
 
 	.mobile-menu.is-open {
@@ -274,10 +178,6 @@
 			width: 141px;
 			height: 22.956px;
 			max-width: 42vw;
-		}
-
-		.nav-actions :global(.btn) {
-			display: none;
 		}
 	}
 </style>

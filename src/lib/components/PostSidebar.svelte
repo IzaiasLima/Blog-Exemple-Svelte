@@ -19,7 +19,7 @@
 		<span>Próximo passo</span>
 		<h2>Vamos conversar sobre seu projeto?</h2>
 		<p>Solicite um orçamento ou tire dúvidas sobre nossos serviços de proteção contra incêndio.</p>
-		<Button href="/#contato" variant="primary" size="small">Fale conosco</Button>
+		<Button href="/contato" variant="primary" size="small">Fale conosco</Button>
 	</div>
 </aside>
 

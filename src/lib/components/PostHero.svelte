@@ -65,12 +65,12 @@
 		color: var(--accent-dark);
 	}
 
-	.post-hero h1 {
+	/* .post-hero h1 {
 		max-width: 1200px;
 		margin: 42px auto 28px;
 		font-weight: 800;
 		text-wrap: balance;
-	}
+	} */
 
 	.post-hero h1 span {
 		display: block;
@@ -79,6 +79,7 @@
 	}
 
 	.post-hero h1 strong {
+		display: block;
 		font-family: inherit;
 		font-weight: 800;
 	}

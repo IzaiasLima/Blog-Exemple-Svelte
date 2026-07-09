@@ -1,35 +1,47 @@
 <script lang="ts">
-	import { footerGroups } from '$lib/data/routes';
+	import { footerGroups } from "$lib/data/routes";
 </script>
 
 <footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col-brand">
-        <div class="footer-brand">
-          <a href="/">
-            <img src="/assets/logo-vtaquino-header.png" alt="VTAQUINO — Fire Consultancy" width="130" height="52" />
-          </a>
-        </div>
-        <p>Projetos e instalações de proteção e prevenção contra incêndio e pânico, do projeto executivo à manutenção.</p>
-      </div>
-      {#each footerGroups as group}
-        <div>
-          <h3>{group.title}</h3>
-          {#each group.items as item}
-            {#if item.href === '#'}
-              <p>{item.label}</p>
-            {:else if item.external}
-              <a href={item.href} target="_blank" rel="noopener">{item.label}</a>
-            {:else}
-              <a href={item.href}>{item.label}</a>
-            {/if}
-          {/each}
-        </div>
-      {/each}
-    </div>
-    <div class="footer-bottom">© 2026 VTAQUINO. Todos os direitos reservados.</div>
-  </div>
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-col-brand">
+				<div class="footer-brand">
+					<a href="/">
+						<img
+							src="/assets/logo-vtaquino-header.png"
+							alt="VTAQUINO — Engenharia de Proteção Contra Incêndio"
+							width="130"
+							height="52"
+						/>
+					</a>
+				</div>
+				<p>
+					Projetos e instalações de proteção e prevenção contra
+					incêndio e pânico, do projeto executivo à manutenção.
+				</p>
+			</div>
+			{#each footerGroups as group}
+				<div>
+					<h3>{group.title}</h3>
+					{#each group.items as item}
+						{#if item.href === "#"}
+							<p>{item.label}</p>
+						{:else if item.external}
+							<a href={item.href} target="_blank" rel="noopener"
+								>{item.label}</a
+							>
+						{:else}
+							<a href={item.href}>{item.label}</a>
+						{/if}
+					{/each}
+				</div>
+			{/each}
+		</div>
+		<div class="footer-bottom">
+			© 2026 VTAQUINO. Todos os direitos reservados.
+		</div>
+	</div>
 </footer>
 
 <style>
@@ -42,7 +54,7 @@
 
 	.footer-grid {
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-template-columns: 3fr repeat(3, minmax(0, 1fr));
 		gap: var(--space-xl);
 	}
 
