@@ -201,7 +201,7 @@
 		display: flex;
 		align-items: end;
 		justify-content: space-between;
-		gap: 28px;
+		gap: var(--space-28);
 		padding-bottom: var(--space-base);
 		border-bottom: 1px solid rgba(var(--accent-rgb), 0.30);
 	}
@@ -260,14 +260,14 @@
 		}
 		.post-share-links {
 			flex-wrap: wrap;
-			gap: 14px;
+			gap: var(--space-md);
 		}
 		.post-share-links span {
 			flex: 0 0 100%;
 			text-align: center;
 		}
 		.post-nav-link {
-			gap: 7px;
+			gap: var(--space-xs);
 			font-size: 11px;
 			letter-spacing: 0.06em;
 		}
@@ -277,7 +277,7 @@
 		.post-blog-row {
 			align-items: flex-start;
 			flex-direction: column;
-			gap: 12px;
+			gap: var(--space-12);
 		}
 	}
 </style>

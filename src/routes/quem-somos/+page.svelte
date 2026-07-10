@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Header from "$lib/components/Header.svelte";
 	import Footer from "$lib/components/Footer.svelte";
+	import Card from "$lib/components/Card.svelte";
 	import Button from "$lib/components/Button.svelte";
 </script>
 
@@ -28,7 +29,7 @@
 
 <section class="page-hero">
 	<div class="container page-hero-inner">
-		<p class="pill"><span></span> Quem Somos</p>
+		<!-- <p class="pill"><span></span> Quem Somos</p> -->
 		<h1>
 			Engenharia de proteção contra incêndio <strong
 				>criada para mergulhar na necessidade específica de cada cliente</strong
@@ -84,10 +85,22 @@
 		</div>
 
 		<div class="values-section">
-			<h2 class="section-title">Nossos pilares</h2>
+			<p class="pill">Consultoria em projetos de execução de obras</p>
+			<h2 class="section-title">
+				O que orienta cada projeto de proteção contra incêndio.
+			</h2>
+			<p class="section-subtitle">
+				Da concepção até a operação, três pilares sustentam a entrega
+				técnica da VTAQUINO.
+			</p>
 			<div class="values-grid">
-				<article class="value-card">
-					<div class="value-card-icon" aria-hidden="true">
+				<Card
+					layout="centered"
+					padding="lg"
+					iconSize="md"
+					class="value-card"
+				>
+					{#snippet icon()}
 						<svg
 							viewBox="0 0 24 24"
 							fill="none"
@@ -100,15 +113,20 @@
 								d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
 							/>
 						</svg>
-					</div>
+					{/snippet}
 					<h3>Foco no cliente</h3>
 					<p>
 						Soluções técnico-financeiras, legislativas e normativas
 						construídas para a necessidade específica de cada obra.
 					</p>
-				</article>
-				<article class="value-card">
-					<div class="value-card-icon" aria-hidden="true">
+				</Card>
+				<Card
+					layout="centered"
+					padding="lg"
+					iconSize="md"
+					class="value-card"
+				>
+					{#snippet icon()}
 						<svg
 							viewBox="0 0 24 24"
 							fill="none"
@@ -117,15 +135,20 @@
 						>
 							<path d="M22 12h-4l-3 9L9 3l-3 9H2" />
 						</svg>
-					</div>
+					{/snippet}
 					<h3>Performance</h3>
 					<p>
 						Prazos e economicidade acompanhados do início ao fim da
 						obra ou reforma.
 					</p>
-				</article>
-				<article class="value-card">
-					<div class="value-card-icon" aria-hidden="true">
+				</Card>
+				<Card
+					layout="centered"
+					padding="lg"
+					iconSize="md"
+					class="value-card"
+				>
+					{#snippet icon()}
 						<svg
 							viewBox="0 0 24 24"
 							fill="none"
@@ -134,17 +157,17 @@
 						>
 							<path d="M12 2l3 7h7l-5 5 2 7-7-4-7 4 2-7-5-5h7z" />
 						</svg>
-					</div>
+					{/snippet}
 					<h3>Inovação</h3>
 					<p>
 						Metodologia BIM e ferramentas de integração para todas
 						as fases de projeto, execução e manutenção.
 					</p>
-				</article>
+				</Card>
 			</div>
 		</div>
 
-		<div class="about-cta">
+		<div class="section-cta">
 			<h2>Vamos conversar sobre <strong>seu projeto</strong></h2>
 			<p>
 				Entre em contato para solicitar um orçamento ou tirar dúvidas.
@@ -201,13 +224,11 @@
 
 	.values-section {
 		padding: var(--space-xl) 0;
+		text-align: center;
 	}
 
-	.section-title {
-		text-align: center;
-		font-size: 2rem;
-		font-weight: 800;
-		margin: 0 0 var(--space-lg);
+	.values-section .pill {
+		margin-bottom: var(--space-base);
 	}
 
 	.values-grid {
@@ -216,63 +237,12 @@
 		gap: var(--space-base);
 	}
 
-	.value-card {
-		padding: var(--space-xl) var(--space-lg);
-		transition:
-			border-color 0.2s,
-			transform 0.2s,
-			box-shadow 0.2s;
-		text-align: center;
-	}
-
-	.value-card:hover {
-		transform: translateY(-3px);
-	}
-
-	.value-card-icon {
-		width: 44px;
-		height: 44px;
-		margin: 0 auto var(--space-base);
-		border-radius: 12px;
-	}
-
-	.value-card-icon svg {
-		width: 24px;
-		height: 24px;
-	}
-
-	.value-card h3 {
-		margin: 0 0 var(--space-sm);
+	:global(.value-card h3) {
 		font-size: 1.1rem;
-		font-weight: 700;
 	}
 
-	.value-card p {
-		margin: 0;
-		color: var(--muted);
-		font-size: 14px;
-		line-height: 1.65;
-	}
-
-	.about-cta {
-		text-align: center;
-		padding: var(--space-xl) 0 0;
+	.section-cta {
 		border-top: 1px solid var(--line);
-	}
-
-	.about-cta h2 {
-		font-weight: 800;
-		margin-bottom: var(--space-md);
-	}
-
-	.about-cta h2 strong {
-		color: var(--accent);
-	}
-
-	.about-cta p {
-		color: var(--muted);
-		font-size: 15px;
-		margin: 0 0 var(--space-lg);
 	}
 
 	@media (max-width: 920px) {

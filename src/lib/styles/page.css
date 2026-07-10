@@ -31,6 +31,7 @@
 	line-height: 1.7;
 	text-align: center;
 	margin: 0;
+	letter-spacing: 0.02em;
 }
 
 /* Section base */
@@ -39,27 +40,45 @@
 	background: var(--bg);
 }
 
-/* Stat cards (used in Quem Somos and Consultoria) */
-.stat-card {
-	display: grid;
-	gap: 4px;
-	padding: var(--space-lg) var(--space-base);
+/* Section title & subtitle — shared across pages */
+.section-title {
 	text-align: center;
-}
-
-.stat-number {
-	font-family: var(--font-display);
-	font-size: 2.8rem;
+	font-size: 2rem;
 	font-weight: 800;
-	color: var(--accent);
-	line-height: 1;
+	margin: 0 0 var(--space-lg);
 }
 
-.stat-label {
+.section-subtitle {
+	text-align: center;
 	color: var(--muted);
-	font-size: 13px;
-	font-weight: 600;
-	letter-spacing: 0.04em;
+	font-size: 15px;
+	margin: 0 0 var(--space-xl);
+}
+
+/* Section CTA — shared across pages */
+.section-cta {
+	text-align: center;
+	padding: var(--space-xl) 0 0;
+}
+
+.section-cta h2 {
+	font-weight: 800;
+	margin-bottom: var(--space-md);
+}
+
+.section-cta h2 strong {
+	color: var(--accent);
+}
+
+.section-cta p {
+	color: var(--muted);
+	font-size: 15px;
+	margin: 0 0 var(--space-lg);
+}
+
+/* Pages with short hero strong — inline instead of block */
+.page-hero h1 strong.hero-strong-inline {
+	display: inline-block;
 }
 
 /* Breakpoints */

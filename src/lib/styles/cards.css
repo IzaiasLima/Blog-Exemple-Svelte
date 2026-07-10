@@ -1,58 +1,15 @@
-/* ===== VTAQUINO Card Styles (Light Mode) ===== */
+/* ===== VTAQUINO Card Styles ===== */
 
-/* Unified card base - shared by all card-like components across pages */
-[class*="-card"]:not([class*="-card-icon"]) {
-	position: relative;
-	border: 1px solid var(--border);
-	border-radius: var(--radius);
-	background: var(--panel);
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-	transition: border-color var(--transition-base),
-		transform var(--transition-base),
-		box-shadow var(--transition-base);
-	overflow: hidden;
-}
+/*
+ * Blog Card (.card)
+ * Used by BlogCard.svelte for blog listing and related posts.
+ * This is separate from the generic Card component.
+ */
 
-[class*="-card"]:not([class*="-card-icon"])::before {
-	content: '';
-	position: absolute;
-	top: -1px;
-	left: -1px;
-	right: -1px;
-	height: 3px;
-	border-radius: var(--radius) var(--radius) 0 0;
-	background: linear-gradient(to right,
-			var(--accent) 0%,
-			var(--accent-light) 35%,
-			transparent 100%);
-	pointer-events: none;
-	z-index: 1;
-}
-
-[class*="-card"]:not([class*="-card-icon"]):hover {
-	border-color: var(--border-hover);
-	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Unified card icon base */
-[class*="-card-icon"] {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: var(--accent-soft);
-	color: var(--accent);
-}
-
-[class*="-card-icon"] svg {
-	display: block;
-}
-
-/* Card base */
 .card {
 	position: relative;
 	display: grid;
 	grid-template-rows: auto 1fr;
-	border: 1px solid var(--accent-dark);
 	border-radius: var(--radius);
 	background: var(--panel);
 	overflow: hidden;
@@ -70,10 +27,10 @@
 	left: 0;
 	right: 0;
 	height: 3px;
-	background: linear-gradient(to right,
+	/* background: linear-gradient(to right,
 			var(--accent-dark) 0%,
 			var(--accent-light) 35%,
-			transparent 100%);
+			transparent 100%); */
 	pointer-events: none;
 	z-index: 1;
 }
@@ -106,15 +63,15 @@
 .card-body {
 	display: grid;
 	gap: var(--space-md);
-	padding: clamp(18px, 2vw, 28px);
 }
+
 
 /* Card meta row — light mode */
 .card-meta {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	gap: 8px;
+	gap: var(--space-xs);
 }
 
 .card-meta span {
@@ -132,6 +89,19 @@
 	text-transform: uppercase;
 }
 
+/* Meta — large (hero/post hero variant) */
+.card-meta-lg {
+	gap: var(--space-sm);
+	justify-content: center;
+}
+
+.card-meta-lg span {
+	min-height: 28px;
+	padding: var(--space-xs) 12px;
+	font-size: var(--text-xs);
+	letter-spacing: 0.12em;
+}
+
 .card-category {
 	border-color: rgba(var(--accent-rgb), 0.50) !important;
 	background: rgba(var(--accent-rgb), 0.08);
@@ -144,7 +114,6 @@
 	margin: 0;
 	font-size: clamp(22px, 1.8vw, 28px);
 	line-height: 1.05;
-	/* text-transform: uppercase; */
 	color: var(--text);
 	font-weight: 800;
 }
@@ -171,7 +140,7 @@
 .read-article {
 	display: inline-flex;
 	align-items: center;
-	gap: 6px;
+	gap: var(--space-2xs);
 	color: var(--accent);
 	font-size: 12px;
 	font-weight: 700;
@@ -181,12 +150,65 @@
 }
 
 .card:hover .read-article {
-	gap: 10px;
+	gap: var(--space-sm);
 	letter-spacing: 0.12em;
+}
+
+/* ===== Stat Cards (used in Quem Somos and Consultoria) ===== */
+.stat-card {
+	border: none;
+	box-shadow: none;
+	overflow: visible;
+	transition: none;
+	display: grid;
+	gap: var(--space-2xs);
+	padding: var(--space-lg) var(--space-base);
+	text-align: center;
+}
+
+.stat-card::before,
+.stat-card:hover::before {
+	display: none;
+}
+
+.stat-card:hover {
+	border-color: inherit;
+	box-shadow: none;
+	transform: none;
+}
+
+.stat-number {
+	font-family: var(--font-display);
+	font-size: 2.8rem;
+	font-weight: 800;
+	color: var(--accent);
+	line-height: 1;
+}
+
+.stat-label {
+	color: var(--muted);
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+}
+
+/* ===== Section Label (used in PostSidebar) ===== */
+.card-meta-title {
+	margin: 0 0 var(--space-md);
+	color: var(--accent-dark);
+	font-size: var(--text-xs);
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+/* ===== Blog Card padding ===== */
+.card-padding-fluid {
+	padding: clamp(18px, 2vw, 28px);
 }
 
 @media (max-width: 560px) {
 	.card-meta {
-		gap: 6px;
+		gap: var(--space-2xs);
 	}
 }

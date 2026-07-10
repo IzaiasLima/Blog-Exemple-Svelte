@@ -1,7 +1,66 @@
 <script lang="ts">
+	import { onMount, onDestroy } from "svelte";
 	import Header from "$lib/components/Header.svelte";
 	import Footer from "$lib/components/Footer.svelte";
 	import Button from "$lib/components/Button.svelte";
+
+	const clients = [
+		{ img: "patio-brasil.png" },
+		{ img: "tecnisa.png" },
+		{ img: "colegio-santa-rosa.png" },
+		{ img: "brasal-refrigerantes.png" },
+		{ img: "anhanguera-educacional.png" },
+		{ img: "marisa.png" },
+		{ img: "araujo-abreu.png" },
+		{ img: "brasilia-international-school.png" },
+	];
+
+	const marqueeClients = [...clients, ...clients];
+
+	let marqueeEl: HTMLDivElement | undefined = $state();
+	let isDragging = $state(false);
+	let rafId: number | undefined;
+	let lastTime: number | undefined;
+	let startX = 0;
+	let scrollStart = 0;
+
+	const SPEED = 0.125; // px/ms ≈ original speed
+
+	function tick(time: number) {
+		if (marqueeEl && !isDragging) {
+			if (lastTime === undefined) lastTime = time;
+			const delta = Math.min(time - lastTime, 50);
+			lastTime = time;
+			const max = marqueeEl.scrollWidth / 2;
+			marqueeEl.scrollLeft = (marqueeEl.scrollLeft + delta * SPEED) % max;
+		}
+		rafId = requestAnimationFrame(tick);
+	}
+
+	function onStart(e: MouseEvent | TouchEvent) {
+		isDragging = true;
+		lastTime = undefined;
+		const cx =
+			"touches" in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+		startX = cx;
+		scrollStart = marqueeEl?.scrollLeft ?? 0;
+	}
+
+	function onMove(e: MouseEvent | TouchEvent) {
+		if (!isDragging || !marqueeEl) return;
+		e.preventDefault();
+		const cx =
+			"touches" in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+		marqueeEl.scrollLeft = scrollStart + (startX - cx) * 1.5;
+	}
+
+	function onEnd() {
+		isDragging = false;
+		lastTime = undefined;
+	}
+
+	onMount(() => { rafId = requestAnimationFrame(tick); });
+	onDestroy(() => { if (rafId !== undefined) cancelAnimationFrame(rafId); });
 </script>
 
 <svelte:head>
@@ -28,8 +87,8 @@
 
 <section class="page-hero">
 	<div class="container page-hero-inner">
-		<p class="pill"><span></span> Clientes satisfeitos</p>
-		<h1>Cases de <strong>Sucesso</strong></h1>
+		<!-- <p class="pill"><span></span> Clientes satisfeitos</p> -->
+		<h1>Cases de <strong class="hero-strong-inline">Sucesso</strong></h1>
 		<p class="page-hero-copy">
 			Todo cliente merece o melhor atendimento com a melhor qualidade na
 			execução dos serviços prestados. Garantimos a excelência em nossos
@@ -42,7 +101,7 @@
 <section class="page-section cases-section">
 	<div class="container">
 		<div class="cases-header">
-			<p class="pill"><span></span> Confiam na VTAQUINO</p>
+			<!-- <p class="pill"><span></span> Confiam na VTAQUINO</p> -->
 			<h2>
 				Conheça alguns de <strong>nossos clientes satisfeitos</strong>.
 			</h2>
@@ -52,22 +111,37 @@
 			</p>
 		</div>
 
-		<div class="clients-grid">
-			{#each [{ name: "Pátio Brasil Shopping", img: "patio-brasil.png" }, { name: "Tecnisa", img: "tecnisa.png" }, { name: "Colégio Santa Rosa", img: "colegio-santa-rosa.png" }, { name: "Brasal Refrigerantes", img: "brasal-refrigerantes.png" }, { name: "Anhanguera Educacional", img: "anhanguera-educacional.png" }, { name: "Marisa", img: "marisa.png" }, { name: "Araújo Abreu", img: "araujo-abreu.png" }, { name: "Brasília International School", img: "brasilia-international-school.png" }] as client}
-				<article class="client-card">
-					<img
-						class="client-logo"
-						src="/assets/clients/{client.img}"
-						alt={client.name}
-						loading="lazy"
-					/>
-					<span class="client-name">{client.name}</span>
-				</article>
-			{/each}
+		<div
+			class="clients-marquee"
+			bind:this={marqueeEl}
+			onmousedown={onStart}
+			onmousemove={onMove}
+			onmouseup={onEnd}
+			onmouseleave={onEnd}
+			ontouchstart={onStart}
+			ontouchmove={onMove}
+			ontouchend={onEnd}
+			role="listbox"
+			tabindex="0"
+			aria-label="Clientes que confiam na VTAQUINO"
+		>
+			<div class="clients-track">
+				{#each marqueeClients as client, i (client.img + i)}
+					<article class="client-card">
+						<img
+							class="client-logo"
+							src="/assets/clients/{client.img}"
+							alt=""
+							loading="lazy"
+							draggable="false"
+						/>
+					</article>
+				{/each}
+			</div>
 		</div>
 
-		<div class="cases-cta">
-			<p class="pill"><span></span> Seja o próximo case</p>
+		<div class="section-cta">
+			<!-- <p class="pill"><span></span> Seja o próximo case</p> -->
 			<h2>
 				E seja você também mais um <strong>cliente satisfeito</strong>.
 			</h2>
@@ -87,22 +161,13 @@
 		max-width: 900px;
 		margin: 16px auto 14px;
 	}
-	.page-hero h1 strong {
-		display: inline-block;
-	}
-
 	.page-hero-copy {
 		max-width: 600px;
-		letter-spacing: 0.02em;
 	}
 
 	.cases-header {
 		text-align: center;
 		margin-bottom: var(--space-xl);
-	}
-
-	.cases-header .pill {
-		margin-bottom: var(--space-base);
 	}
 
 	.cases-header h2 {
@@ -124,86 +189,96 @@
 		margin-inline: auto;
 	}
 
-	.clients-grid {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: var(--space-base);
+	.clients-marquee {
+		overflow: auto hidden;
 		margin-bottom: var(--space-xl);
+		mask-image: linear-gradient(
+			to right,
+			transparent 0%,
+			black 4%,
+			black 96%,
+			transparent 100%
+		);
+		-webkit-mask-image: linear-gradient(
+			to right,
+			transparent 0%,
+			black 4%,
+			black 96%,
+			transparent 100%
+		);
+		cursor: grab;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.clients-marquee::-webkit-scrollbar {
+		display: none;
+	}
+
+	.clients-marquee:active {
+		cursor: grabbing;
+	}
+
+	.clients-track {
+		display: flex;
+		gap: var(--space-lg);
+		width: max-content;
+		pointer-events: none;
+		user-select: none;
+		-webkit-user-select: none;
 	}
 
 	.client-card {
 		display: flex;
-		flex-direction: column;
 		align-items: center;
-		gap: var(--space-sm);
+		justify-content: center;
 		padding: var(--space-lg) var(--space-base);
-		transition:
-			border-color 0.2s,
-			transform 0.2s,
-			box-shadow 0.2s;
-		text-align: center;
+		min-width: 160px;
+		/* Remove card styling — logos only, no visual card */
+		border: none;
+		border-radius: 0;
+		background: transparent;
+		box-shadow: none;
+		overflow: visible;
+		transition: none;
+	}
+
+	.client-card::before,
+	.client-card:hover::before {
+		display: none;
 	}
 
 	.client-card:hover {
-		transform: translateY(-2px);
+		border-color: inherit;
+		box-shadow: none;
+		transform: none;
 	}
 
 	.client-logo {
 		width: 100%;
-		max-width: 120px;
+		max-width: 150px;
 		height: auto;
-		max-height: 56px;
+		max-height: 72px;
 		object-fit: contain;
-		margin-bottom: var(--space-xs);
+		transition: transform var(--transition-base);
 	}
 
-	.client-name {
-		font-size: 13px;
-		font-weight: 600;
-		color: var(--text);
-		line-height: 1.3;
+	.client-card:hover .client-logo {
+		transform: scale(1.08);
 	}
 
-	.cases-cta {
-		text-align: center;
-		padding: var(--space-xl) 0 0;
+	.section-cta {
 		border-top: 1px solid var(--line);
 	}
 
-	.cases-cta .pill {
-		margin-bottom: var(--space-base);
-	}
-
-	.cases-cta h2 {
-		font-weight: 800;
-		margin: 0 auto var(--space-md);
+	.section-cta h2 {
 		max-width: 480px;
+		margin: 0 auto var(--space-md);
 		text-wrap: balance;
 	}
 
-	.cases-cta h2 strong {
-		color: var(--accent);
-	}
-
-	.cases-cta .cases-subtitle {
+	.section-cta .cases-subtitle {
 		margin-bottom: var(--space-lg);
-	}
-
-	@media (max-width: 920px) {
-		.clients-grid {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
-
-	@media (max-width: 720px) {
-		.clients-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-	@media (max-width: 560px) {
-		.clients-grid {
-			grid-template-columns: 1fr;
-		}
 	}
 </style>

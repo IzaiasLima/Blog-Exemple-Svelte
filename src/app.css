@@ -39,11 +39,14 @@
 	--text-base: 14px;
 
 	/* Spacing scale */
+	--space-2xs: 6px;
 	--space-xs: 8px;
 	--space-sm: 10px;
+	--space-12: 12px;
 	--space-md: 14px;
 	--space-base: 18px;
 	--space-lg: 24px;
+	--space-28: 28px;
 	--space-xl: 48px;
 
 	/* Transitions */
@@ -100,15 +103,15 @@ h3 {
 }
 
 h1 {
-	font-size: clamp(2.2rem, 5vw, 4.6rem);
-}
-
-h2 {
 	font-size: clamp(1.8rem, 3.2vw, 2.7rem);
 }
 
+h2 {
+	font-size: clamp(1.45rem, 2vw, 1.6rem);
+}
+
 h3 {
-	font-size: 1.12rem;
+	font-size: 0.9rem;
 	font-weight: 700;
 }
 
@@ -194,12 +197,11 @@ button {
 .pill {
 	display: inline-flex;
 	align-items: center;
-	gap: 8px;
-	border: 1px solid rgba(var(--accent-rgb), 0.3);
+	gap: var(--space-xs);
+	/* border: 1px solid rgba(var(--accent-rgb), 0.3); */
 	border-radius: 999px;
-	padding: 7px 13px;
+	/* padding: 7px 13px; */
 	margin: 0;
-	background: rgba(var(--accent-rgb), 0.08);
 	color: var(--accent-dark);
 	font-family: var(--font-meta);
 	font-size: 11px;
@@ -208,9 +210,11 @@ button {
 	text-transform: uppercase;
 }
 
-.pill span {
-	width: 6px;
-	height: 6px;
-	border-radius: 999px;
-	background: var(--accent);
+.pill::before {
+	content: '';
+	display: inline-block;
+	width: 28px;
+	height: 2px;
+	border-radius: 50%;
+	background-color: var(--accent);
 }

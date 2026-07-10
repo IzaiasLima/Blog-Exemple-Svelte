@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Header from "$lib/components/Header.svelte";
 	import Footer from "$lib/components/Footer.svelte";
+	import Card from "$lib/components/Card.svelte";
 	import Button from "$lib/components/Button.svelte";
 </script>
 
@@ -28,8 +29,8 @@
 
 <section class="page-hero">
 	<div class="container page-hero-inner">
-		<p class="pill"><span></span> Contato</p>
-		<h1>Fale com a <strong>gente</strong></h1>
+		<!-- <p class="pill"><span></span> Contato</p> -->
+		<h1>Fale com a <strong class="hero-strong-inline">gente</strong></h1>
 		<p class="page-hero-copy">
 			Existem várias formas de entrar em contato com a VTAQUINO. Escolha a
 			que preferir e aguarde nosso retorno.
@@ -115,8 +116,14 @@
 			</div>
 
 			<aside class="contato-info">
-				<article class="contato-card">
-					<div class="contato-card-icon" aria-hidden="true">
+				<Card
+					padding="sm"
+					layout="horizontal"
+					border="light"
+					iconSize="sm"
+					class="contato-card"
+				>
+					{#snippet icon()}
 						<svg
 							viewBox="0 0 24 24"
 							fill="none"
@@ -128,13 +135,19 @@
 							/>
 							<circle cx="12" cy="10" r="3" />
 						</svg>
-					</div>
+					{/snippet}
 					<h3>Localização</h3>
 					<p>Brasília — DF</p>
-				</article>
+				</Card>
 
-				<article class="contato-card">
-					<div class="contato-card-icon" aria-hidden="true">
+				<Card
+					padding="sm"
+					layout="horizontal"
+					border="light"
+					iconSize="sm"
+					class="contato-card"
+				>
+					{#snippet icon()}
 						<svg
 							viewBox="0 0 24 24"
 							fill="none"
@@ -145,7 +158,7 @@
 								d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"
 							/>
 						</svg>
-					</div>
+					{/snippet}
 					<h3>WhatsApp</h3>
 					<p>
 						<a
@@ -154,10 +167,16 @@
 							rel="noopener noreferrer">(61) 98249-6399</a
 						>
 					</p>
-				</article>
+				</Card>
 
-				<article class="contato-card">
-					<div class="contato-card-icon" aria-hidden="true">
+				<Card
+					padding="sm"
+					layout="horizontal"
+					border="light"
+					iconSize="sm"
+					class="contato-card"
+				>
+					{#snippet icon()}
 						<svg
 							viewBox="0 0 24 24"
 							fill="none"
@@ -169,22 +188,28 @@
 							/>
 							<polyline points="22,6 12,13 2,6" />
 						</svg>
-					</div>
+					{/snippet}
 					<h3>E-mail</h3>
 					<p>
 						<a href="mailto:contato@vtaquino.com.br"
 							>contato@vtaquino.com.br</a
 						>
 					</p>
-				</article>
+				</Card>
 
-				<div class="contato-cta-card">
+				<Card
+					padding="sm"
+					border="accent"
+					variant="accent"
+					layout="centered"
+					class="contato-cta-card"
+				>
 					<p>Orçamento sem compromisso</p>
 					<Button
 						href="https://wa.me/5561982496399?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20VTAQUINO%2C%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas."
 						variant="primary">Solicitar orçamento</Button
 					>
-				</div>
+				</Card>
 			</aside>
 		</div>
 	</div>
@@ -196,10 +221,6 @@
 	.page-hero h1 {
 		max-width: 900px;
 		margin: 16px auto 14px;
-	}
-
-	.page-hero-inner h1 strong {
-		display: inline-block;
 	}
 
 	.page-hero-copy {
@@ -225,7 +246,7 @@
 
 	.form-field {
 		display: grid;
-		gap: 6px;
+		gap: var(--space-2xs);
 	}
 
 	.form-field label {
@@ -279,67 +300,27 @@
 		gap: var(--space-base);
 	}
 
-	.contato-card {
-		padding: var(--space-lg) var(--space-base);
-		border: 1px solid var(--line);
-		border-radius: var(--radius);
-		background: var(--panel);
-		display: grid;
-		grid-template-columns: auto 1fr;
-		gap: 0 var(--space-base);
-		align-items: center;
-	}
-
-	.contato-card-icon {
-		grid-row: span 2;
-		width: 40px;
-		height: 40px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 10px;
-		background: var(--accent-soft);
-		color: var(--accent);
-	}
-
-	.contato-card-icon svg {
-		width: 22px;
-		height: 22px;
-	}
-
-	.contato-card h3 {
+	:global(.contato-card h3) {
 		font-size: 14px;
-		font-weight: 700;
 		margin: 0;
 		color: var(--text);
 	}
 
-	.contato-card p {
+	:global(.contato-card p) {
 		font-size: 13px;
-		color: var(--muted);
 		margin: 0;
 	}
 
-	.contato-card a {
+	:global(.contato-card a) {
 		color: var(--accent);
 		text-decoration: none;
 	}
 
-	.contato-card a:hover {
+	:global(.contato-card a:hover) {
 		text-decoration: underline;
 	}
 
-	.contato-cta-card {
-		padding: var(--space-lg) var(--space-base);
-		border: 1px solid var(--accent);
-		border-radius: var(--radius);
-		background: var(--accent-soft);
-		text-align: center;
-		display: grid;
-		gap: var(--space-base);
-	}
-
-	.contato-cta-card p {
+	:global(.contato-cta-card p) {
 		font-weight: 600;
 		font-size: 14px;
 		color: var(--text);
@@ -352,9 +333,5 @@
 		}
 	}
 
-	@media (max-width: 720px) {
-		.page-section {
-			padding: 40px 0 72px;
-		}
-	}
+
 </style>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Header from "$lib/components/Header.svelte";
 	import Footer from "$lib/components/Footer.svelte";
+	import Card from "$lib/components/Card.svelte";
 	import Button from "$lib/components/Button.svelte";
 </script>
 
@@ -57,13 +58,13 @@
 		<h2 class="section-title">
 			Vamos conversar sobre <strong>seu projeto</strong>
 		</h2>
-		<p class="section-copy">
+		<p class="section-subtitle">
 			Entre em contato conosco para solicitar um orçamento ou tirar
 			dúvidas sobre nossos serviços.
 		</p>
 		<div class="contact-grid">
-			<div class="contact-card">
-				<div class="contact-card-icon" aria-hidden="true">
+			<Card layout="centered" padding="md" iconSize="md" class="contact-card">
+				{#snippet icon()}
 					<svg
 						viewBox="0 0 24 24"
 						fill="none"
@@ -74,12 +75,12 @@
 							d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
 						/>
 					</svg>
-				</div>
+				{/snippet}
 				<h3>Telefone</h3>
 				<a href="tel:5561982496399">(61) 98249-6399</a>
-			</div>
-			<div class="contact-card">
-				<div class="contact-card-icon" aria-hidden="true">
+			</Card>
+			<Card layout="centered" padding="md" iconSize="md" class="contact-card">
+				{#snippet icon()}
 					<svg
 						viewBox="0 0 24 24"
 						fill="none"
@@ -91,14 +92,14 @@
 						/>
 						<polyline points="22,6 12,13 2,6" />
 					</svg>
-				</div>
+				{/snippet}
 				<h3>E-mail</h3>
 				<a href="mailto:contato@vtaquino.com.br"
 					>contato@vtaquino.com.br</a
 				>
-			</div>
-			<div class="contact-card">
-				<div class="contact-card-icon" aria-hidden="true">
+			</Card>
+			<Card layout="centered" padding="md" iconSize="md" class="contact-card">
+				{#snippet icon()}
 					<svg
 						viewBox="0 0 24 24"
 						fill="none"
@@ -110,12 +111,12 @@
 						/>
 						<circle cx="12" cy="10" r="3" />
 					</svg>
-				</div>
+				{/snippet}
 				<h3>Localização</h3>
 				<p>Brasília - DF</p>
-			</div>
-			<div class="contact-card">
-				<div class="contact-card-icon" aria-hidden="true">
+			</Card>
+			<Card layout="centered" padding="md" iconSize="md" class="contact-card">
+				{#snippet icon()}
 					<svg
 						viewBox="0 0 24 24"
 						fill="none"
@@ -126,14 +127,14 @@
 							d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"
 						/>
 					</svg>
-				</div>
+				{/snippet}
 				<h3>WhatsApp</h3>
 				<a
 					href="https://wa.me/5561982496399?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20da%20VTAQUINO%2C%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas."
 					target="_blank"
 					rel="noopener">Fale conosco</a
 				>
-			</div>
+			</Card>
 		</div>
 	</div>
 </section>
@@ -181,46 +182,19 @@
 		margin-top: var(--space-xl);
 	}
 
-	.contact-card {
-		padding: var(--space-lg);
-		text-align: center;
-		transition:
-			border-color var(--transition-fast),
-			transform var(--transition-fast),
-			box-shadow var(--transition-fast);
-	}
-
-	.contact-card:hover {
-		transform: translateY(-3px);
-	}
-
-	.contact-card-icon {
-		width: 44px;
-		height: 44px;
-		margin: 0 auto var(--space-md);
-		border-radius: 12px;
-	}
-
-	.contact-card-icon svg {
-		width: 22px;
-		height: 22px;
-	}
-
-	.contact-card h3 {
+	:global(.contact-card h3) {
 		margin: 0 0 var(--space-xs);
 		font-size: 0.95rem;
-		font-weight: 700;
-		color: var(--text);
 	}
 
-	.contact-card a,
-	.contact-card p {
+	:global(.contact-card a),
+	:global(.contact-card p) {
 		margin: 0;
 		color: var(--muted-2);
 		font-size: 13.5px;
 	}
 
-	.contact-card a:hover {
+	:global(.contact-card a:hover) {
 		color: var(--accent);
 	}
 

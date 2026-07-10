@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Card from './Card.svelte';
+	import BlogCard from './BlogCard.svelte';
 
 	interface Post {
 		slug: string;
@@ -24,7 +24,7 @@
 		</div>
 		<div class="related-grid">
 			{#each posts as post}
-				<Card
+				<BlogCard
 					slug={post.slug}
 					title={post.title}
 					emphasis={post.emphasis}
@@ -51,7 +51,7 @@
 		display: flex;
 		align-items: end;
 		justify-content: space-between;
-		gap: 28px;
+		gap: var(--space-28);
 		margin-bottom: 44px;
 	}
 

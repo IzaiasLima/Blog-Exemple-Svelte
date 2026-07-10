@@ -131,7 +131,7 @@
 
 	.post-content :global(ul) {
 		display: grid;
-		gap: 9px;
+		gap: var(--space-xs);
 		margin: 22px 0;
 		padding: 0;
 		list-style: none;

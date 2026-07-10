@@ -110,7 +110,7 @@
 		height: 40px;
 		align-items: center;
 		justify-content: center;
-		gap: 5px;
+		gap: var(--space-2xs);
 		flex-direction: column;
 		border: 1px solid var(--line);
 		border-radius: var(--radius);
@@ -145,7 +145,7 @@
 	.mobile-menu a {
 		display: flex;
 		align-items: center;
-		gap: 9px;
+		gap: var(--space-xs);
 		padding: 12px var(--space-sm);
 		color: var(--muted-2);
 		border-bottom: 1px solid var(--line);

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Button from './Button.svelte';
+	import Card from "./Card.svelte";
+	import Button from "./Button.svelte";
 
 	interface Props {
 		toc: string;
@@ -9,18 +10,23 @@
 </script>
 
 <aside class="post-sidebar" aria-label="Navegação do artigo">
-	<div class="post-sidebar-card">
-		<p>Índice</p>
+	<Card padding="xs" border="light" class="sidebar-toc">
+		<p class="card-meta-title">Índice</p>
 		<nav>
 			{@html toc}
 		</nav>
-	</div>
-	<div class="post-sidebar-cta">
-		<span>Próximo passo</span>
+	</Card>
+	<Card padding="xs" variant="accent" class="sidebar-cta">
+		<span class="cta-label">Próximo passo</span>
 		<h2>Vamos conversar sobre seu projeto?</h2>
-		<p>Solicite um orçamento ou tire dúvidas sobre nossos serviços de proteção contra incêndio.</p>
-		<Button href="/contato" variant="primary" size="small">Fale conosco</Button>
-	</div>
+		<p>
+			Solicite um orçamento ou tire dúvidas sobre nossos serviços de
+			proteção contra incêndio.
+		</p>
+		<Button href="/contato" variant="primary" size="small"
+			>Fale conosco</Button
+		>
+	</Card>
 </aside>
 
 <style>
@@ -31,34 +37,34 @@
 		gap: var(--space-md);
 	}
 
-	.post-sidebar-card {
-		padding: var(--space-base);
-		border: 1px solid var(--line);
-		border-radius: var(--radius);
-		background: var(--panel);
+	/* ===== TOC Card Overrides ===== */
+	:global(.sidebar-toc) {
+		box-shadow: none;
+		transition: none;
 	}
 
-	.post-sidebar-card p {
-		margin: 0 0 var(--space-md);
-		color: var(--accent-dark);
-		font-size: var(--text-xs);
-		font-weight: 700;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
+	:global(.sidebar-toc)::before {
+		display: none;
 	}
 
-	.post-sidebar-card nav {
+	:global(.sidebar-toc):hover {
+		border-color: var(--line);
+		box-shadow: none;
+		transform: none;
+	}
+
+	:global(.sidebar-toc nav) {
 		display: grid;
 		gap: 2px;
 	}
 
-	.post-sidebar-card nav :global(ul) {
+	:global(.sidebar-toc ul) {
 		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
 
-	.post-sidebar-card :global(a) {
+	:global(.sidebar-toc a) {
 		display: block;
 		padding: 9px 0;
 		border-bottom: 1px solid var(--line-light);
@@ -67,30 +73,40 @@
 		font-weight: 700;
 		line-height: 1.35;
 		letter-spacing: 0.04em;
-		transition: color var(--transition-fast), padding var(--transition-fast);
+		transition:
+			color var(--transition-fast),
+			padding var(--transition-fast);
 	}
 
-	.post-sidebar-card :global(a:last-child) {
+	:global(.sidebar-toc a:last-child) {
 		border-bottom: 0;
 	}
 
-	.post-sidebar-card :global(a:hover),
-	.post-sidebar-card :global(a:focus-visible) {
+	:global(.sidebar-toc a:hover),
+	:global(.sidebar-toc a:focus-visible) {
 		color: var(--accent-dark);
 		padding-left: 6px;
 		outline: none;
 	}
 
-	.post-sidebar-cta {
-		display: grid;
-		gap: 12px;
-		padding: var(--space-base);
-		border: 1px solid rgba(var(--accent-rgb), 0.30);
-		border-radius: var(--radius);
-		background: var(--accent-soft);
+	/* ===== CTA Card Overrides ===== */
+	:global(.sidebar-cta) {
+		border-color: rgba(var(--accent-rgb), 0.3);
+		box-shadow: none;
+		transition: none;
 	}
 
-	.post-sidebar-cta span {
+	:global(.sidebar-cta)::before {
+		display: none;
+	}
+
+	:global(.sidebar-cta):hover {
+		border-color: rgba(var(--accent-rgb), 0.3);
+		box-shadow: none;
+		transform: none;
+	}
+
+	:global(.sidebar-cta .cta-label) {
 		display: inline-flex;
 		width: fit-content;
 		align-items: center;
@@ -107,7 +123,7 @@
 		text-transform: uppercase;
 	}
 
-	.post-sidebar-cta h2 {
+	:global(.sidebar-cta h2) {
 		margin: 0;
 		color: var(--text);
 		font-size: 22px;
@@ -117,7 +133,7 @@
 		font-weight: 800;
 	}
 
-	.post-sidebar-cta p {
+	:global(.sidebar-cta p) {
 		margin: 0;
 		color: var(--muted);
 		font-size: 12.5px;
@@ -125,22 +141,23 @@
 		letter-spacing: 0.02em;
 	}
 
-	.post-sidebar-cta :global(.btn) {
+	:global(.sidebar-cta .btn) {
 		width: fit-content;
 		margin-top: 2px;
 	}
 
+	/* ===== Responsive ===== */
 	@media (max-width: 920px) {
 		.post-sidebar {
 			position: static;
 		}
 
-		.post-sidebar-card nav {
+		:global(.sidebar-toc nav) {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
-			column-gap: 18px;
+			column-gap: var(--space-base);
 		}
 
-		.post-sidebar-card nav :global(a) {
+		:global(.sidebar-toc a) {
 			display: inline-block;
 		}
 	}

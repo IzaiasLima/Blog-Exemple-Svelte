@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Header from "$lib/components/Header.svelte";
 	import Footer from "$lib/components/Footer.svelte";
+	import Card from "$lib/components/Card.svelte";
 	import Button from "$lib/components/Button.svelte";
 	import { servicesSubRoutes } from "$lib/data/routes";
 </script>
@@ -29,7 +30,7 @@
 
 <section class="page-hero">
 	<div class="container page-hero-inner">
-		<p class="pill"><span></span> Serviços</p>
+		<!-- <p class="pill"><span></span> Serviços</p> -->
 		<h1>Soluções completas em <strong>proteção contra incêndio</strong></h1>
 		<p class="page-hero-copy">
 			Da concepção à operação, oferecemos serviços especializados em
@@ -43,36 +44,29 @@
 <section class="page-section">
 	<div class="container">
 		<div class="services-page-grid">
-			{#each servicesSubRoutes as service}
-				<article
+			{#each servicesSubRoutes as service, i}
+				<Card
+					padding="md"
+					iconSize="sm"
 					id={service.href.split("#")[1]}
 					class="service-page-card"
 				>
-					<div class="service-page-card-icon" aria-hidden="true">
-						<svg
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-						>
-							<path
-								d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-							/>
-						</svg>
-					</div>
+					{#snippet icon()}
+						<span class="service-number">{(i + 1).toString().padStart(2, '0')}</span>
+					{/snippet}
 					<h2>{service.label}</h2>
 					{#if service.items}
-						<ul class="service-card-list">
+						<ul class="service-list">
 							{#each service.items as item}
 								<li>{item}</li>
 							{/each}
 						</ul>
 					{/if}
-				</article>
+				</Card>
 			{/each}
 		</div>
 
-		<div class="page-cta">
+		<div class="section-cta">
 			<p>Solicite um orçamento para seu projeto</p>
 			<Button href="/contato">Solicitar orçamento</Button>
 		</div>
@@ -89,7 +83,6 @@
 
 	.page-hero-copy {
 		max-width: 600px;
-		letter-spacing: 0.02em;
 	}
 
 	.services-page-grid {
@@ -99,47 +92,30 @@
 		margin-bottom: var(--space-xl);
 	}
 
-	.service-page-card {
-		padding: var(--space-lg);
-		transition:
-			border-color var(--transition-base),
-			transform var(--transition-base),
-			box-shadow var(--transition-base);
+	.service-number {
+		font-size: 15px;
+		font-weight: 800;
+		color: var(--accent);
+		line-height: 1;
 	}
 
-	.service-page-card:hover {
-		transform: translateY(-3px);
-	}
-
-	.service-page-card-icon {
-		width: 40px;
-		height: 40px;
-		margin-bottom: var(--space-base);
-		border-radius: 10px;
-	}
-
-	.service-page-card-icon svg {
-		width: 22px;
-		height: 22px;
-	}
-
-	.service-page-card h2 {
+	:global(.service-page-card h2) {
 		margin: 0 0 var(--space-xs);
 		font-size: 1.1rem;
 		font-weight: 700;
 		color: var(--text);
 	}
 
-	.service-card-list {
+	.service-list {
 		list-style: none;
 		padding: 0;
 		margin: var(--space-sm) 0 0;
 		border: none;
 		display: grid;
-		gap: 6px;
+		gap: var(--space-2xs);
 	}
 
-	.service-card-list li {
+	.service-list li {
 		position: relative;
 		padding-left: 16px;
 		color: var(--muted);
@@ -147,7 +123,7 @@
 		line-height: 1.55;
 	}
 
-	.service-card-list li::before {
+	.service-list li::before {
 		content: "";
 		position: absolute;
 		left: 0;
@@ -157,17 +133,6 @@
 		border-radius: 50%;
 		background: var(--accent);
 		opacity: 0.6;
-	}
-
-	.page-cta {
-		text-align: center;
-		padding: var(--space-xl) 0 0;
-	}
-
-	.page-cta p {
-		color: var(--muted);
-		font-size: 15px;
-		margin: 0 0 var(--space-lg);
 	}
 
 	@media (max-width: 920px) {

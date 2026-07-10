@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Header from '$lib/components/Header.svelte';
 	import BlogHero from '$lib/components/BlogHero.svelte';
-	import Card from '$lib/components/Card.svelte';
+	import BlogCard from '$lib/components/BlogCard.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
 	let { data } = $props();
@@ -37,7 +37,7 @@
 	<div class="container">
 		<div class="blog-grid">
 			{#each posts as post}
-				<Card
+				<BlogCard
 					slug={post.slug}
 					title={post.title}
 					emphasis={post.emphasis}

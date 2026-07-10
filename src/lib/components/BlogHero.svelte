@@ -1,10 +1,13 @@
 <section class="blog-hero hero-section">
 	<div class="hero-fx" aria-hidden="true"></div>
 	<div class="container hero-inner">
-		<p class="pill"><span></span> Blog</p>
-		<h1 class="hero-title-gradient">Artigos & <strong class="hero-strong">Insights</strong></h1>
+		<!-- <p class="pill"><span></span> Blog</p> -->
+		<h1 class="hero-title-gradient">
+			Artigos & <strong class="hero-strong">Insights</strong>
+		</h1>
 		<p class="hero-copy blog-hero-copy">
-			Estratégias, execução e critério para decisões conscientes sobre proteção contra incêndio, segurança e prevenção.
+			Estratégias, execução e critério para decisões conscientes sobre
+			proteção contra incêndio, segurança e prevenção.
 		</p>
 	</div>
 </section>
@@ -13,8 +16,11 @@
 	.blog-hero {
 		min-height: 520px;
 		padding: 120px 0 80px;
-		background:
-			radial-gradient(circle at 85% 10%, rgba(var(--accent-rgb), 0.08), transparent 28rem),
+		background: radial-gradient(
+				circle at 85% 10%,
+				rgba(var(--accent-rgb), 0.08),
+				transparent 28rem
+			),
 			var(--panel-2);
 	}
 
