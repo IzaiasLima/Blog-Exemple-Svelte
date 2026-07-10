@@ -3,13 +3,14 @@
 /* Unified card base - shared by all card-like components across pages */
 [class*="-card"]:not([class*="-card-icon"]) {
 	position: relative;
-	border: 1px solid var(--accent-dark);
+	border: 1px solid var(--border);
 	border-radius: var(--radius);
 	background: var(--panel);
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 	transition: border-color var(--transition-base),
 		transform var(--transition-base),
 		box-shadow var(--transition-base);
+	overflow: hidden;
 }
 
 [class*="-card"]:not([class*="-card-icon"])::before {
@@ -20,19 +21,17 @@
 	right: -1px;
 	height: 3px;
 	border-radius: var(--radius) var(--radius) 0 0;
-	background: linear-gradient(
-		to right,
-		var(--accent) 0%,
-		var(--accent-light) 35%,
-		transparent 100%
-	);
+	background: linear-gradient(to right,
+			var(--accent) 0%,
+			var(--accent-light) 35%,
+			transparent 100%);
 	pointer-events: none;
 	z-index: 1;
 }
 
 [class*="-card"]:not([class*="-card-icon"]):hover {
-	border-color: var(--accent-dark);
-	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+	border-color: var(--border-hover);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Unified card icon base */
@@ -71,12 +70,10 @@
 	left: 0;
 	right: 0;
 	height: 3px;
-	background: linear-gradient(
-		to right,
-		var(--accent) 0%,
-		var(--accent-light) 35%,
-		transparent 100%
-	);
+	background: linear-gradient(to right,
+			var(--accent-dark) 0%,
+			var(--accent-light) 35%,
+			transparent 100%);
 	pointer-events: none;
 	z-index: 1;
 }
@@ -171,7 +168,7 @@
 }
 
 /* Card CTA */
-.card-cta {
+.read-article {
 	display: inline-flex;
 	align-items: center;
 	gap: 6px;
@@ -183,7 +180,7 @@
 	transition: gap var(--transition-fast), letter-spacing var(--transition-fast);
 }
 
-.card:hover .card-cta {
+.card:hover .read-article {
 	gap: 10px;
 	letter-spacing: 0.12em;
 }

@@ -1,17 +1,21 @@
 <script lang="ts">
-	import { navRoutes } from '$lib/data/routes';
+	import { navRoutes } from "$lib/data/routes";
 
 	let mobileOpen = $state(false);
 
 	function toggleMobile() {
 		mobileOpen = !mobileOpen;
-		document.body.classList.toggle('menu-open', mobileOpen);
+		document.body.classList.toggle("menu-open", mobileOpen);
 	}
 </script>
 
 <header class="site-header" data-header="">
 	<div class="container nav-shell">
-		<a class="brand" href="/" aria-label="VTAQUINO — Engenharia de Proteção Contra Incêndio">
+		<a
+			class="brand"
+			href="/"
+			aria-label="VTAQUINO — Engenharia de Proteção Contra Incêndio"
+		>
 			<img src="/assets/logo-vtaquino-header.png" alt="VTAQUINO" />
 		</a>
 
@@ -24,7 +28,7 @@
 		<button
 			class="mobile-toggle"
 			type="button"
-			aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
+			aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
 			aria-expanded={mobileOpen}
 			onclick={toggleMobile}
 		>
@@ -92,7 +96,7 @@
 	}
 
 	.mobile-menu a::before {
-		content: '';
+		content: "";
 		width: 5px;
 		height: 5px;
 		flex: 0 0 auto;
@@ -146,12 +150,14 @@
 		color: var(--muted-2);
 		border-bottom: 1px solid var(--line);
 		font-weight: 600;
-		transition: background var(--transition-fast), color var(--transition-fast);
+		transition:
+			background var(--transition-fast),
+			color var(--transition-fast);
 	}
 
 	.mobile-menu a:hover,
 	.mobile-menu a:focus-visible {
-		background: var(--card);
+		background: var(--panel);
 		color: var(--text);
 	}
 

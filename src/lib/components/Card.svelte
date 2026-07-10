@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { reveal } from '$lib/actions/reveal';
+	import { reveal } from "$lib/actions/reveal";
 
 	interface Props {
 		slug: string;
@@ -10,7 +10,7 @@
 		reading_time: string;
 		description: string;
 		image: string;
-		headingLevel?: 'h2' | 'h3';
+		headingLevel?: "h2" | "h3";
 	}
 
 	let {
@@ -22,7 +22,7 @@
 		reading_time,
 		description,
 		image,
-		headingLevel = 'h2',
+		headingLevel = "h2",
 	}: Props = $props();
 </script>
 
@@ -43,12 +43,14 @@
 			<span>{date}</span>
 			<span>{reading_time} de leitura</span>
 		</div>
-		{#if headingLevel === 'h3'}
+		{#if headingLevel === "h3"}
 			<h3>{title}<strong> {emphasis}</strong></h3>
 		{:else}
 			<h2>{title}<strong> {emphasis}</strong></h2>
 		{/if}
 		<p>{description}</p>
-		<span class="card-cta">Ler artigo <span aria-hidden="true">→</span></span>
+		<span class="read-article"
+			>Ler artigo <span aria-hidden="true">→</span></span
+		>
 	</div>
 </a>
