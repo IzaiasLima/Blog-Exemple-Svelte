@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PostSidebar from './PostSidebar.svelte';
+	import PostSidebar from "./PostSidebar.svelte";
 
 	interface Props {
 		image: string;
@@ -89,17 +89,6 @@
 		margin-top: clamp(54px, 5vw, 96px);
 	}
 
-	.post-content :global(h2) {
-		max-width: 680px;
-		margin: 0 0 18px;
-		color: var(--text);
-		font-size: clamp(34px, 3vw, 52px);
-		line-height: 1;
-		letter-spacing: 0.01em;
-		/* text-transform: uppercase; */
-		font-weight: 800;
-	}
-
 	.post-content :global(p) {
 		max-width: 780px;
 		margin: 0 0 14px;
@@ -125,7 +114,7 @@
 		color: var(--accent-dark);
 		font-weight: 700;
 		text-decoration: underline;
-		text-decoration-color: rgba(var(--accent-rgb), 0.40);
+		text-decoration-color: rgba(var(--accent-rgb), 0.4);
 		text-underline-offset: 3px;
 	}
 
@@ -147,7 +136,7 @@
 	}
 
 	.post-content :global(li::before) {
-		content: '';
+		content: "";
 		position: absolute;
 		left: 0;
 		top: 0.78em;

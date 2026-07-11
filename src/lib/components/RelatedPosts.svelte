@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BlogCard from './BlogCard.svelte';
+	import BlogCard from "./BlogCard.svelte";
 
 	interface Post {
 		slug: string;
@@ -16,29 +16,29 @@
 </script>
 
 {#if posts.length > 0}
-<section class="related-posts" aria-label="Artigos Recentes">
-	<div class="container">
-		<div class="related-heading">
-			<p class="pill"><span></span> Blog</p>
-			<h2>Artigos <strong>Recentes</strong></h2>
+	<section class="related-posts" aria-label="Artigos Recentes">
+		<div class="container">
+			<div class="related-heading">
+				<p class="pill"><span></span> Blog</p>
+				<h2>Artigos <strong>Recentes</strong></h2>
+			</div>
+			<div class="related-grid">
+				{#each posts as post}
+					<BlogCard
+						slug={post.slug}
+						title={post.title}
+						emphasis={post.emphasis}
+						category={post.category}
+						date={post.date}
+						reading_time={post.reading_time}
+						description={post.description}
+						image={post.image}
+						headingLevel="h3"
+					/>
+				{/each}
+			</div>
 		</div>
-		<div class="related-grid">
-			{#each posts as post}
-				<BlogCard
-					slug={post.slug}
-					title={post.title}
-					emphasis={post.emphasis}
-					category={post.category}
-					date={post.date}
-					reading_time={post.reading_time}
-					description={post.description}
-					image={post.image}
-					headingLevel="h3"
-				/>
-			{/each}
-		</div>
-	</div>
-</section>
+	</section>
 {/if}
 
 <style>
@@ -53,22 +53,6 @@
 		justify-content: space-between;
 		gap: var(--space-28);
 		margin-bottom: 44px;
-	}
-
-	.related-heading h2 {
-		margin: 0;
-		color: var(--text);
-		font-size: clamp(44px, 4.4vw, 68px);
-		line-height: 0.95;
-		/* text-transform: uppercase; */
-		text-align: right;
-		font-weight: 800;
-	}
-
-	.related-heading h2 strong {
-		color: var(--accent);
-		font-family: inherit;
-		font-weight: 800;
 	}
 
 	.related-grid {

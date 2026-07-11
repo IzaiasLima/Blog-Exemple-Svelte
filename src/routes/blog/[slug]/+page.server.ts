@@ -42,8 +42,6 @@ function removeManualToc(body: string): string {
 	return body.replace(/^\s*(- \[.*?\]\(#.*?\)\s*\n)+/, '').trimStart();
 }
 
-export const prerender = true;
-
 export const entries: EntryGenerator = () => {
 	const postsDir = join(process.cwd(), 'src/posts');
 	const files = readdirSync(postsDir).filter((f: string) => f.endsWith('.md'));

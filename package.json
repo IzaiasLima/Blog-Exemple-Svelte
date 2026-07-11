@@ -1,6 +1,6 @@
 {
-	"name": "ia-teste",
-	"version": "0.0.1",
+	"name": "VT-Aquino",
+	"version": "0.0.3",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",

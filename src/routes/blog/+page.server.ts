@@ -10,8 +10,6 @@ function parseDateBrazil(d: string): number {
 	return new Date(year, month - 1, day).getTime();
 }
 
-export const prerender = true;
-
 export const load: PageServerLoad = () => {
 	const postsDir = join(process.cwd(), 'src/posts');
 	const files = readdirSync(postsDir).filter((f: string) => f.endsWith('.md'));
